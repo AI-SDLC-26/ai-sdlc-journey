@@ -221,9 +221,13 @@ Key point:
 * Efficiency matters in real usage
 * Billing changed from May 2026
 
+References:
+* https://ashy-dune-0b4215a0f.7.azurestaticapps.net/
+* https://github.com/rtk-ai/rtk
+
 # Additional Step 12 — Remote Control
 
-Show how AI can be used from a mobile device to review sessions and trigger follow-up actions.
+Show how AI can be used from a mobile device to review sessions and trigger follow-up action. Use of `/remote` from the GitHub CLI.
 
 # Summary
 
