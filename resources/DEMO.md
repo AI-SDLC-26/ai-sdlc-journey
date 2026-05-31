@@ -83,7 +83,28 @@ Outcome:
 Generate an implementation plan using Spec Kit.
 
 ```bash
-#1 Created constitution "speckit.constitution"
+# 1 Created constitution "speckit.constitution". Check "spec-kit.constitution.md" for details.
+
+# 2 Download the Issue #2 from GitHub and "speckit.specify" it ("Answe what and why, but not how"). Check "specs/001-users-table/spec.md" for details.
+Now get the issue 2 with the GitHub MCP and create a new spec for this issue. Ask any questions you need to clarify the requirements before creating the spec. Once you have a clear understanding proceed as usual.
+
+# 3 Do a clarification round with "speckit.clarify" to be sure everything is crystal clear.
+# Answer any question.
+
+# 4 Plan with "speckit.plan" and create a step by step implementation plan.
+Create a plan for the spec. I am building with the existant technolgoies both for the SPA and API Rest. If technically feasible, use no library and just plain html and ts for the table.  Ask any question for clarification.
+
+# 5 Break down into tasks with "speckit.tasks".
+Just execute the previous handoff from the plan step, or select the speckit.tasks agent.
+
+# 6 Check for consistency using "speckit.analyze"
+Check the consistency of the spec 001, plan and tasks with the constitution. If any violation is found, report it and suggest how to fix it. 
+
+# 7 Implement with 
+Implement the spec 001, taking into account the spec, plan and tasks.
+
+
+
 
 ```
 

@@ -1,0 +1,63 @@
+openapi: 3.0.3
+info:
+  title: Demo API - Users Contract
+  version: 1.0.0
+  description: Contract for users list used by SPA users table.
+paths:
+  /api/users:
+    get:
+      summary: Get users list for table rendering
+      tags:
+        - Users
+      description: Returns a predefined mock users list by default on every call unless `empty=true` is provided.
+      security:
+        - BearerAuth: []
+      parameters:
+        - in: query
+          name: empty
+          required: false
+          schema:
+            type: boolean
+          description: When true, returns an empty users list for deterministic validation.
+      responses:
+        '200':
+          description: Successful users list response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/UserSummary'
+              examples:
+                populated:
+                  value:
+                    - name: Admin
+                      role: admin
+                      status: active
+                    - name: Ana
+                      role: member
+                      status: active
+                empty:
+                  value: []
+        '401':
+          description: Unauthorized (missing or invalid bearer token)
+components:
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+  schemas:
+    UserSummary:
+      type: object
+      required:
+        - name
+        - role
+        - status
+      properties:
+        name:
+          type: string
+        role:
+          type: string
+        status:
+          type: string
