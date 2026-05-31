@@ -69,6 +69,10 @@ SPA default URL: `http://localhost:5173`
 - `GET /api/demo`
 	- Requires `Authorization: Bearer <token>`
 	- Returns demo message, items, and generation timestamp
+- `GET /api/users`
+	- Requires `Authorization: Bearer <token>`
+	- Returns predefined mock users on default calls
+	- Supports `?empty=true` for deterministic empty-state validation
 
 OpenAPI JSON: `http://localhost:5000/openapi/v1.json`
 
@@ -97,6 +101,13 @@ From `src/spa`:
 - `npm run lint` - run ESLint
 - `npm run test` - run Vitest
 - `npm run fetch-api-spec` - fetch OpenAPI JSON from local API
+
+## Users Flow
+
+- Sign in with demo credentials.
+- Open `/users` to view the native HTML table with `Name`, `Role`, and `Status` columns.
+- Open `/users?empty=true` to validate the exact empty-state message: `No available users`.
+- If not authenticated, navigation to `/users` redirects to `/`.
 
 ## Configuration Notes
 

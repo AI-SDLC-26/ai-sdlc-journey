@@ -28,8 +28,8 @@ SPA default URL: `http://localhost:5173`
 5. Refresh `/users` and confirm rows are still returned from default mock data behavior.
 
 ## Empty-State Validation
-1. Trigger deterministic empty mode by calling users API with empty flag from the SPA integration path.
-2. Re-open or refresh users page.
+1. Open `/users?empty=true` after logging in.
+2. Re-open or refresh users page with the same query.
 3. Confirm exact text `No available users` is displayed.
 
 ## Authorization Validation
@@ -50,9 +50,23 @@ cd src/spa
 npm test
 ```
 
+If your environment has worker-thread startup issues with Vitest, use:
+
+```bash
+cd src/spa
+npm test -- --run --pool=forks
+```
+
 ### Lint and build
 ```bash
 cd src/spa
 npm run lint
 npm run build
 ```
+
+## Quality-Gate Validation Notes
+- Date: 2026-05-31
+- API tests: `dotnet test` in `src/api/DemoApi.Tests` passed (9/9)
+- SPA tests: `npm test -- --run --pool=forks` in `src/spa` passed (13/13)
+- SPA lint: `npx eslint src` in `src/spa` passed
+- SPA build: `npm run build` in `src/spa` passed

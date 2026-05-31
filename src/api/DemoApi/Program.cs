@@ -13,6 +13,13 @@ var jwtAudience = builder.Configuration["Jwt:Audience"]!;
 var jwtExpiresHours = int.Parse(builder.Configuration["Jwt:ExpiresInHours"]!);
 var spaOrigin = builder.Configuration["Cors:SpaOrigin"]!;
 
+var mockUsers = new[]
+{
+    new UserSummaryResponse("Admin", "admin", "active"),
+    new UserSummaryResponse("Ana", "member", "active"),
+    new UserSummaryResponse("Marco", "member", "inactive")
+};
+
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options =>
     {
@@ -108,7 +115,20 @@ app.MapGet("/api/demo", (ClaimsPrincipal user) =>
 .RequireAuthorization()
 .WithTags("Demo");
 
+app.MapGet("/api/users", (bool? empty) =>
+{
+    if (empty is true)
+    {
+        return Results.Ok(Array.Empty<UserSummaryResponse>());
+    }
+
+    return Results.Ok(mockUsers);
+})
+.RequireAuthorization()
+.WithTags("Users");
+
 app.Run();
 
 record LoginRequest(string Username, string Password);
 record LoginResponse(string Token, string Name, string Role);
+record UserSummaryResponse(string Name, string Role, string Status);

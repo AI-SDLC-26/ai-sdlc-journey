@@ -13,6 +13,7 @@ export default function HomePage() {
         <p>You are already logged in.</p>
         <div style={{ marginTop: "1rem", display: "flex", gap: "1rem", justifyContent: "center" }}>
           <a href="/dashboard" style={{ padding: "0.5rem 1rem" }}>Go to Dashboard</a>
+          <a href="/users" style={{ padding: "0.5rem 1rem" }}>Go to Users</a>
           <button onClick={logout}>Logout</button>
         </div>
       </div>

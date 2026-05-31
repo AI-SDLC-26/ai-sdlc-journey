@@ -37,6 +37,9 @@ paths:
                     - name: Ana
                       role: member
                       status: active
+                    - name: Marco
+                      role: member
+                      status: inactive
                 empty:
                   value: []
         '401':

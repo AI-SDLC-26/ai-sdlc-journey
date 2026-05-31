@@ -20,7 +20,10 @@ export default function DashboardPage() {
   return (
     <div style={{ textAlign: "center", marginTop: "4rem" }}>
       <h1>Logged in {user.name}</h1>
-      <button onClick={logout} style={{ marginBottom: "2rem" }}>Logout</button>
+      <div style={{ marginBottom: "2rem", display: "flex", gap: "1rem", justifyContent: "center" }}>
+        <a href="/users">Go to Users</a>
+        <button onClick={logout}>Logout</button>
+      </div>
       {error && <p style={{ color: "red" }}>{error}</p>}
       {data && (
         <div>
