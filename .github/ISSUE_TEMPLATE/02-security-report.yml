@@ -1,0 +1,81 @@
+name: "Security Report"
+description: "Report a security finding for triage"
+title: "[SECURITY] "
+labels: ["security", "needs-triage"]
+type: "Security Report"
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Security Report
+        Use this template to document a security issue or finding for triage.
+
+        If this repository is public and the issue is sensitive, prefer private vulnerability reporting or the repository security policy instead of filing a public issue.
+
+  - type: checkboxes
+    id: security_check
+    attributes:
+      label: Submission checklist
+      description: Confirm these points before submitting.
+      options:
+        - label: I am not disclosing secrets, exploit code, credentials, or other sensitive material in this issue.
+          required: true
+        - label: I included enough detail for triage and validation.
+          required: true
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: The problem
+      description: Describe the vulnerability or security concern clearly and precisely.
+      placeholder: |
+        What is the issue?
+        Where was it found?
+        What component / endpoint / flow is affected?
+    validations:
+      required: true
+
+  - type: textarea
+    id: findings
+    attributes:
+      label: Findings
+      description: Add the evidence, observations, steps, impact, and any relevant technical details.
+      placeholder: |
+        Findings / evidence:
+        Reproduction steps:
+        Affected assets / components:
+        Observed impact:
+    validations:
+      required: true
+
+  - type: dropdown
+    id: score
+    attributes:
+      label: Score
+      description: Rate the severity from 1 (lowest) to 10 (highest).
+      options:
+        - "1"
+        - "2"
+        - "3"
+        - "4"
+        - "5"
+        - "6"
+        - "7"
+        - "8"
+        - "9"
+        - "10"
+    validations:
+      required: true
+
+  - type: textarea
+    id: possible_solution
+    attributes:
+      label: Possible solution (optional)
+      description: Suggest a mitigation, fix, or next action if you have one.
+      placeholder: |
+        Proposed remediation:
+        Temporary mitigation:
+        Validation notes:
+    validations:
+      required: false

@@ -1,0 +1,111 @@
+name: "User Story"
+description: "Create a precise and complete User Story (US)"
+title: "[US] "
+labels: ["user-story", "needs-refinement"]
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## User Story Definition
+        Complete all sections with enough detail for refinement and implementation.
+        Focus on the **user need and outcome**, not only on the proposed solution.
+
+  - type: checkboxes
+    id: readiness_check
+    attributes:
+      label: Submission checklist
+      description: Confirm the story is complete before submitting.
+      options:
+        - label: I searched for existing related issues / epics first.
+          required: true
+        - label: I described the problem clearly.
+          required: true
+        - label: I added testable acceptance criteria.
+          required: true
+        - label: I defined what is in scope and out of scope.
+          required: true
+
+  - type: input
+    id: short_summary
+    attributes:
+      label: Short summary
+      description: One-line summary of the requested user outcome.
+      placeholder: "Allow registered users to save a draft before submitting a request"
+    validations:
+      required: true
+
+  - type: input
+    id: user_story
+    attributes:
+      label: User story statement
+      description: "Use the format: As a ..., I want to ..., so that ..."
+      placeholder: "As a registered user, I want to save a draft, so that I can finish the form later"
+    validations:
+      required: true
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: Describe the problem being solved, who is affected, and why it matters to the organization / product.
+      placeholder: |
+        Current situation:
+        Who is affected:
+        Why this is a problem:
+        Evidence / examples:
+    validations:
+      required: true
+
+  - type: textarea
+    id: dependencies
+    attributes:
+      label: Dependencies
+      description: List dependencies, assumptions, blockers, or related work.
+      placeholder: |
+        - Depends on:
+        - Assumes:
+        - Blocked by:
+        - Related issues / epics:
+    validations:
+      required: true
+
+  - type: textarea
+    id: acceptance_criteria
+    attributes:
+      label: Acceptance criteria
+      description: Write testable conditions. Prefer Given / When / Then.
+      placeholder: |
+        1. Given ...
+           When ...
+           Then ...
+
+        2. Given ...
+           When ...
+           Then ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: in_scope
+    attributes:
+      label: In scope
+      description: Explicitly list what is included in this story.
+      placeholder: |
+        - Included functionality 1
+        - Included scenario 2
+        - Included constraint 3
+    validations:
+      required: true
+
+  - type: textarea
+    id: out_of_scope
+    attributes:
+      label: Out of scope
+      description: Explicitly list what is excluded from this story.
+      placeholder: |
+        - Excluded functionality 1
+        - Future enhancement 2
+        - Not covered scenario 3
+    validations:
+      required: true
