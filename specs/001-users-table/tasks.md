@@ -18,9 +18,9 @@
 
 **Purpose**: Create feature-level implementation and test scaffolding.
 
-- [ ] T001 Create API users endpoint test scaffold in src/api/DemoApi.Tests/UsersEndpointTests.cs
-- [ ] T002 Create SPA users page test scaffold in src/spa/src/__tests__/UsersPage.test.tsx
-- [ ] T003 [P] Align contract examples for populated and empty responses in specs/001-users-table/contracts/users-api.yaml
+- [X] T001 Create API users endpoint test scaffold in src/api/DemoApi.Tests/UsersEndpointTests.cs
+- [X] T002 Create SPA users page test scaffold in src/spa/src/__tests__/UsersPage.test.tsx
+- [X] T003 [P] Align contract examples for populated and empty responses in specs/001-users-table/contracts/users-api.yaml
 
 ---
 
@@ -30,9 +30,9 @@
 
 **⚠️ CRITICAL**: No user story work should begin until this phase is complete.
 
-- [ ] T004 Add shared API user DTO and predefined in-memory mock users collection in src/api/DemoApi/Program.cs
-- [ ] T005 [P] Add shared SPA `UserSummary` type and `fetchUsers` function signature in src/spa/src/api.ts
-- [ ] T006 [P] Register `/users` route placeholder in src/spa/src/App.tsx
+- [X] T004 Add shared API user DTO and predefined in-memory mock users collection in src/api/DemoApi/Program.cs
+- [X] T005 [P] Add shared SPA `UserSummary` type and `fetchUsers` function signature in src/spa/src/api.ts
+- [X] T006 [P] Register `/users` route placeholder in src/spa/src/App.tsx
 
 **Checkpoint**: Foundation is ready for user story execution.
 
@@ -46,16 +46,16 @@
 
 ### Tests for User Story 1
 
-- [ ] T007 [P] [US1] Add API integration test for authorized `GET /api/users` returning predefined mock users in src/api/DemoApi.Tests/UsersEndpointTests.cs
-- [ ] T008 [P] [US1] Add SPA API test for `fetchUsers` success behavior in src/spa/src/__tests__/api.test.ts
-- [ ] T009 [P] [US1] Add SPA page test for loading-to-table render and Name/Role/Status columns in src/spa/src/__tests__/UsersPage.test.tsx
+- [X] T007 [P] [US1] Add API integration test for authorized `GET /api/users` returning predefined mock users in src/api/DemoApi.Tests/UsersEndpointTests.cs
+- [X] T008 [P] [US1] Add SPA API test for `fetchUsers` success behavior in src/spa/src/__tests__/api.test.ts
+- [X] T009 [P] [US1] Add SPA page test for loading-to-table render and Name/Role/Status columns in src/spa/src/__tests__/UsersPage.test.tsx
 
 ### Implementation for User Story 1
 
-- [ ] T010 [US1] Implement authenticated `GET /api/users` default behavior returning predefined mock users on every default call in src/api/DemoApi/Program.cs
-- [ ] T011 [US1] Implement `fetchUsers` bearer request to `/api/users` in src/spa/src/api.ts
-- [ ] T012 [US1] Implement `UsersPage` populated-state rendering with native HTML table elements in src/spa/src/pages/UsersPage.tsx
-- [ ] T013 [US1] Wire `/users` route to `UsersPage` in src/spa/src/App.tsx
+- [X] T010 [US1] Implement authenticated `GET /api/users` default behavior returning predefined mock users on every default call in src/api/DemoApi/Program.cs
+- [X] T011 [US1] Implement `fetchUsers` bearer request to `/api/users` in src/spa/src/api.ts
+- [X] T012 [US1] Implement `UsersPage` populated-state rendering with native HTML table elements in src/spa/src/pages/UsersPage.tsx
+- [X] T013 [US1] Wire `/users` route to `UsersPage` in src/spa/src/App.tsx
 
 **Checkpoint**: User Story 1 is functional and demo-ready as MVP.
 
@@ -69,15 +69,15 @@
 
 ### Tests for User Story 2
 
-- [ ] T014 [P] [US2] Add API integration test for `GET /api/users?empty=true` returning empty array in src/api/DemoApi.Tests/UsersEndpointTests.cs
-- [ ] T015 [P] [US2] Add SPA API test for `fetchUsers` empty-mode query behavior in src/spa/src/__tests__/api.test.ts
-- [ ] T016 [P] [US2] Add SPA page test for exact empty-state text `No available users` in src/spa/src/__tests__/UsersPage.test.tsx
+- [X] T014 [P] [US2] Add API integration test for `GET /api/users?empty=true` returning empty array in src/api/DemoApi.Tests/UsersEndpointTests.cs
+- [X] T015 [P] [US2] Add SPA API test for `fetchUsers` empty-mode query behavior in src/spa/src/__tests__/api.test.ts
+- [X] T016 [P] [US2] Add SPA page test for exact empty-state text `No available users` in src/spa/src/__tests__/UsersPage.test.tsx
 
 ### Implementation for User Story 2
 
-- [ ] T017 [US2] Implement `empty` query handling while preserving default mock-data-on-every-call behavior in src/api/DemoApi/Program.cs
-- [ ] T018 [US2] Extend `fetchUsers` options to send empty-mode query parameter in src/spa/src/api.ts
-- [ ] T019 [US2] Update `UsersPage` empty-state rendering for exact message match in src/spa/src/pages/UsersPage.tsx
+- [X] T017 [US2] Implement `empty` query handling while preserving default mock-data-on-every-call behavior in src/api/DemoApi/Program.cs
+- [X] T018 [US2] Extend `fetchUsers` options to send empty-mode query parameter in src/spa/src/api.ts
+- [X] T019 [US2] Update `UsersPage` empty-state rendering for exact message match in src/spa/src/pages/UsersPage.tsx
 
 **Checkpoint**: User Stories 1 and 2 are independently testable and stable.
 
@@ -91,16 +91,16 @@
 
 ### Tests for User Story 3
 
-- [ ] T020 [P] [US3] Add API integration test for unauthorized `GET /api/users` returning `401` in src/api/DemoApi.Tests/UsersEndpointTests.cs
-- [ ] T021 [P] [US3] Add SPA route test for unauthenticated `/users` redirect to `/` in src/spa/src/__tests__/UsersPage.test.tsx
-- [ ] T022 [P] [US3] Add authenticated home link test for `/users` navigation in src/spa/src/__tests__/HomePage.test.tsx
-- [ ] T023 [P] [US3] Add dashboard navigation test for `/users` link in src/spa/src/__tests__/DashboardPage.test.tsx
+- [X] T020 [P] [US3] Add API integration test for unauthorized `GET /api/users` returning `401` in src/api/DemoApi.Tests/UsersEndpointTests.cs
+- [X] T021 [P] [US3] Add SPA route test for unauthenticated `/users` redirect to `/` in src/spa/src/__tests__/UsersPage.test.tsx
+- [X] T022 [P] [US3] Add authenticated home link test for `/users` navigation in src/spa/src/__tests__/HomePage.test.tsx
+- [X] T023 [P] [US3] Add dashboard navigation test for `/users` link in src/spa/src/__tests__/DashboardPage.test.tsx
 
 ### Implementation for User Story 3
 
-- [ ] T024 [US3] Enforce unauthenticated redirect behavior in `UsersPage` in src/spa/src/pages/UsersPage.tsx
-- [ ] T025 [US3] Add authenticated navigation link to `/users` in src/spa/src/pages/HomePage.tsx
-- [ ] T026 [US3] Add authenticated navigation link to `/users` in src/spa/src/pages/DashboardPage.tsx
+- [X] T024 [US3] Enforce unauthenticated redirect behavior in `UsersPage` in src/spa/src/pages/UsersPage.tsx
+- [X] T025 [US3] Add authenticated navigation link to `/users` in src/spa/src/pages/HomePage.tsx
+- [X] T026 [US3] Add authenticated navigation link to `/users` in src/spa/src/pages/DashboardPage.tsx
 
 **Checkpoint**: All user stories are independently functional with discoverability and authorization behavior covered.
 
@@ -110,9 +110,9 @@
 
 **Purpose**: Cross-story cleanup, validation, and documentation consistency.
 
-- [ ] T027 [P] Update users-flow documentation for local demo in README.md and resources/DEMO.md
-- [ ] T028 [P] Reconcile quickstart steps with final implementation and test paths in specs/001-users-table/quickstart.md
-- [ ] T029 Record final quality-gate validation notes in specs/001-users-table/quickstart.md
+- [X] T027 [P] Update users-flow documentation for local demo in README.md and resources/DEMO.md
+- [X] T028 [P] Reconcile quickstart steps with final implementation and test paths in specs/001-users-table/quickstart.md
+- [X] T029 Record final quality-gate validation notes in specs/001-users-table/quickstart.md
 
 ---
 

@@ -14,8 +14,8 @@ Focus: **practical workflow, not theory**
 
 ## Repository
 
-* Frontend: table UI (basic scaffold)
-* Backend: API endpoint (minimal)
+* Frontend: authenticated `/users` page with native HTML table
+* Backend: authenticated `GET /api/users` endpoint with deterministic empty mode
 * Project builds successfully
 
 ## Copilot Configuration
@@ -103,7 +103,8 @@ Check the consistency of the spec 001, plan and tasks with the constitution. If 
 # 7 Implement with 
 Implement the spec 001, taking into account the spec, plan and tasks.
 
-
+# 8 Let it finish and verify fx with Plawyright
+Verify with playwright that the spec 001 is correctly implemented
 
 
 ```

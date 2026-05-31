@@ -48,5 +48,6 @@ describe("HomePage", () => {
     );
 
     expect(screen.getByText(/Welcome back, Admin/)).toBeDefined();
+    expect(screen.getByRole("link", { name: "Go to Users" }).getAttribute("href")).toBe("/users");
   });
 });
