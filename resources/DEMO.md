@@ -82,6 +82,11 @@ Outcome:
 
 Generate an implementation plan using Spec Kit.
 
+```bash
+#1 Created constitution "speckit.constitution"
+
+```
+
 Output:
 
 * Task breakdown:
