@@ -33,10 +33,10 @@ Focus: **practical workflow, not theory**
 
 # Step 1 — Improve Issue Quality
 
-Start with a weakly defined issue:
+Start with a weakly defined [issue](https://github.com/AI-SDLC-26/ai-sdlc-journey/issues/1):
 
 ```md
-Show user data in a table
+As a user, I want to see my data in a new table in the browser. [...]
 ```
 
 Use a GitHub Agentic Workflow (AW) with a template to refine it:
@@ -50,13 +50,16 @@ Result:
 
 ```md
 ### Refined Issue
-As a user, I want to see my data in a table. I should be able to view all data fields in the SPA after querying the endpoint from the REST API.
+As a stakeholder of the application I want users to be able to see the list of users with their name, role and status, so they are able to get to know them and probably contact in the future.
 
 ### Acceptance Criteria
-- Columns: name, role, status
-- Data comes from the backend API
-- Loading and error states are handled
+Given an user, when they enter the /users page, then they will be presented with the list of users with (name, status and role).
+
+Given no users, when they enter the /users page, then they will be presented with a "No available users" text.
+
+...
 ```
+More details at [Issue 2.](https://github.com/AI-SDLC-26/ai-sdlc-journey/issues/2)
 
 Key point:
 
@@ -65,6 +68,10 @@ Key point:
 # Step 2 — Retrieve the Issue (MCP)
 
 After refining the issue, bring it into the workspace using GitHub MCP.
+
+```bash
+Retrieve issue number 2 of this repository from GitHub and load it into the workspace for analysis and implementation planning.
+```
 
 Outcome:
 
@@ -88,21 +95,15 @@ Key point:
 
 * AI structures the work before implementation
 
-# Step 4 — Vertical Slicing
+# Step 3.bis — Task breakdown with agent
 
-Use a vertical-slicing skill to break the work into small, iterative slices:
+Use the planning agent to break down the issue into tasks, and create GitHub issues for each task.
 
-Example slices:
+```bash
+/project-planning-breakdown-feature-implementation using the GitHub MCP downlaod the issue #2 of this repository, then evaluate the current #codebase and ask any questions you need to clarify the requirements before creating the plan. Once you have a clear understanding of the requirements, create a step by step implementation plan in the #plans folder with the number and short name of the issue, for example: "2-user-table-plan.md".
+```
 
-1. Backend endpoint (minimal)
-2. Frontend table (mock data)
-3. Integration
-
-Key point:
-
-* Prefer incremental delivery over large tasks
-
-# Step 5 — Implementation
+# Step 4 — Implementation
 
 Use skills (frontend + backend) and agents for code generation. 
 
@@ -121,7 +122,7 @@ Key point:
 * AI operates within defined standards
 * We help agents perform better through better guidance
 
-# Step 6 — Security and Guardrails
+# Step 5 — Security and Guardrails
 
 Demonstrate built-in protections in GitHub + Copilot.
 
@@ -149,7 +150,7 @@ Key point:
 * AI code is treated the same as human code
 * Guardrails are mandatory and can be automated
 
-# Step 7 — Supply Chain Monitoring
+# Step 6 — Supply Chain Monitoring
 
 Show Dependabot insights:
 
@@ -161,7 +162,7 @@ Key point:
 
 * Security is continuous, not a phase
 
-# Step 8 — Code Quality Analysis
+# Step 7 — Code Quality Analysis
 
 Run CodeQL:
 
@@ -174,7 +175,7 @@ Key point:
 
 * Quality and security are integrated
 
-# Step 9 — Pull Request Review
+# Step 8 — Pull Request Review
 
 Create a PR:
 
@@ -191,7 +192,7 @@ Key point:
 * Enables consistent reviews across teams
 * Helps as first-pass feedback, not a replacement for human judgment
 
-# Step 10 — Organization Standards
+# Step 9 — Organization Standards
 
 Show custom instructions:
 
@@ -207,7 +208,7 @@ Key point:
 
 * Governance is centralized
 
-# Additional Step 11 — Token Optimization
+# Additional Step 10 — Token Optimization
 
 Show techniques:
 
@@ -225,7 +226,7 @@ References:
 * https://ashy-dune-0b4215a0f.7.azurestaticapps.net/
 * https://github.com/rtk-ai/rtk
 
-# Additional Step 12 — Remote Control
+# Additional Step 11 — Remote Control
 
 Show how AI can be used from a mobile device to review sessions and trigger follow-up action. Use of `/remote` from the GitHub CLI.
 
