@@ -130,16 +130,20 @@ Use the planning agent to break down the issue into tasks, and create GitHub iss
 /project-planning-breakdown-feature-implementation using the GitHub MCP downlaod the issue #2 of this repository, then evaluate the current #codebase and ask any questions you need to clarify the requirements before creating the plan. Once you have a clear understanding of the requirements, create a step by step implementation plan in the #plans folder with the number and short name of the issue, for example: "2-user-table-plan.md".
 ```
 
-## Step 4 — Implementation
+## Step 4 — Implementation live
 
-Use skills (frontend + backend) and agents for code generation. 
+Use skills (frontend + backend) and agents for code generation. Introduce a secret in the code to show security checks later, and also a vulnerable package.
 
+```bash
+Using subagents, implement the tasks defined in the plan #2-user-table-plan.md. Follow best design principles for frotend in React and backend .net REST API. 
+```
 
 What to highlight:
 * Where to get those skills and agents
     * Awesome copilot, Skills.sh, and Autoskills...
 * Code follows conventions
 * AI output is guided, not free-form
+* Introduce a secret for later checking
 
 
 Key point:
@@ -147,7 +151,8 @@ Key point:
 * We understand how to gather the right tools for our AI-powered SDLC
 * Commercial vs. custom agents and skills, including marketplaces
 * AI operates within defined standards
-* We help agents perform better through better guidance
+* We help agents perform better through better guidance#
+* We understand that leaking a secret is an actual risk
 
 ## Step 5 — Security and Guardrails
 
@@ -204,7 +209,7 @@ Key point:
 
 ## Step 8 — Pull Request Review
 
-Create a PR:
+Create a PR for implemented feature. Show how AI can assist in PR review:
 
 * Introduce a deliberate issue pre-cooked and show the PR conversation (PR-Review)
 
