@@ -130,16 +130,20 @@ Use the planning agent to break down the issue into tasks, and create GitHub iss
 /project-planning-breakdown-feature-implementation using the GitHub MCP downlaod the issue #2 of this repository, then evaluate the current #codebase and ask any questions you need to clarify the requirements before creating the plan. Once you have a clear understanding of the requirements, create a step by step implementation plan in the #plans folder with the number and short name of the issue, for example: "2-user-table-plan.md".
 ```
 
-# Step 4 — Implementation
+# Step 4 — Implementation live
 
-Use skills (frontend + backend) and agents for code generation. 
+Use skills (frontend + backend) and agents for code generation. Introduce a secret in the code to show security checks later, and also a vulnerable package.
 
+```bash
+Using subagents, implement the tasks defined in the plan #2-user-table-plan.md. Follow best design principles for frotend in React and backend .net REST API. 
+```
 
 What to highlight:
 * Where to get those skills and agents
     * Awesome copilot, Skills.sh, and Autoskills...
 * Code follows conventions
 * AI output is guided, not free-form
+* Introduce a secret for later checking
 
 
 Key point:
@@ -147,7 +151,8 @@ Key point:
 * We understand how to gather the right tools for our AI-powered SDLC
 * Commercial vs. custom agents and skills, including marketplaces
 * AI operates within defined standards
-* We help agents perform better through better guidance
+* We help agents perform better through better guidance#
+* We understand that leaking a secret is an actual risk
 
 # Step 5 — Security and Guardrails
 
@@ -163,21 +168,12 @@ Demonstrate built-in protections in GitHub + Copilot.
 * Introduce vulnerable package
 * Show Dependabot alert
 
-## Automated Checks
-
-* Linting hooks
-* Security agent review
-
-Optional:
-
-* CodeQL scan
-
 Key point:
 
 * AI code is treated the same as human code
 * Guardrails are mandatory and can be automated
 
-# Step 6 — Supply Chain Monitoring
+## Supply Chain Monitoring
 
 Show Dependabot insights:
 
@@ -189,7 +185,7 @@ Key point:
 
 * Security is continuous, not a phase
 
-# Step 7 — Code Quality Analysis
+# Step 6 — Code Quality Analysis
 
 Run CodeQL:
 
@@ -202,9 +198,9 @@ Key point:
 
 * Quality and security are integrated
 
-# Step 8 — Pull Request Review
+# Step 7 — Pull Request Review
 
-Create a PR:
+Create a PR for implemented feature. Show how AI can assist in PR review:
 
 * Introduce a deliberate issue pre-cooked and show the PR conversation (PR-Review)
 
@@ -219,7 +215,28 @@ Key point:
 * Enables consistent reviews across teams
 * Helps as first-pass feedback, not a replacement for human judgment
 
-# Step 9 — Organization Standards
+
+# Additional Step 8 — Token Optimization
+
+Show techniques:
+
+* Compact prompts
+* Reusable instructions
+* Semantic anchors
+* Token usage reducers
+* Token audit: /chronicle (CLI)
+
+Key point:
+
+* Efficiency matters in real usage
+* Billing changed from May 2026
+
+References:
+* https://ashy-dune-0b4215a0f.7.azurestaticapps.net/
+* https://github.com/rtk-ai/rtk
+
+
+# Additional 1 — Organization Standards -> This is a cross feature
 
 Show custom instructions:
 
@@ -235,25 +252,7 @@ Key point:
 
 * Governance is centralized
 
-# Additional Step 10 — Token Optimization
-
-Show techniques:
-
-* Compact prompts
-* Reusable instructions
-* Semantic anchors
-* Token usage reducers
-
-Key point:
-
-* Efficiency matters in real usage
-* Billing changed from May 2026
-
-References:
-* https://ashy-dune-0b4215a0f.7.azurestaticapps.net/
-* https://github.com/rtk-ai/rtk
-
-# Additional Step 11 — Remote Control
+# Additional 2 — Remote Control -> This is a cross feature
 
 Show how AI can be used from a mobile device to review sessions and trigger follow-up action. Use of `/remote` from the GitHub CLI.
 
