@@ -7,7 +7,7 @@ agents: ["*"]
 hooks:
   UserPromptSubmit:
     - type: "command"
-      command: "powershell.exe -ExecutionPolicy Bypass -File .\scripts\security-check.ps1"
+      command: 'powershell.exe -ExecutionPolicy Bypass -File .\resources\security-check.ps1'
       cwd: "."
       timeout: 300
 ---
