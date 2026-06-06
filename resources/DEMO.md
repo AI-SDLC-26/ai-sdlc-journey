@@ -59,7 +59,7 @@ Given no users, when they enter the /users page, then they will be presented wit
 
 ...
 ```
-More details at [Issue 2.](https://github.com/AI-SDLC-26/ai-sdlc-journey/issues/2)
+More details **at** [Issue 2.](https://github.com/AI-SDLC-26/ai-sdlc-journey/issues/2)
 
 Key point:
 
