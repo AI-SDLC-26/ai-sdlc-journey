@@ -85,14 +85,14 @@ Generate an implementation plan using Spec Kit.
 ```bash
 # 1 Created constitution "speckit.constitution". Check "spec-kit.constitution.md" for details.
 
-# 2 Download the Issue #2 from GitHub and "speckit.specify" it ("Answe what and why, but not how"). Check "specs/001-users-table/spec.md" for details.
+# 2 Download the Issue #2 from GitHub and "speckit.specify" it ("Answer what and why, but not how"). Check "specs/001-users-table/spec.md" for details.
 Now get the issue 2 with the GitHub MCP and create a new spec for this issue. Ask any questions you need to clarify the requirements before creating the spec. Once you have a clear understanding proceed as usual.
 
 # 3 Do a clarification round with "speckit.clarify" to be sure everything is crystal clear.
 # Answer any question.
 
 # 4 Plan with "speckit.plan" and create a step by step implementation plan.
-Create a plan for the spec. I am building with the existant technolgoies both for the SPA and API Rest. If technically feasible, use no library and just plain html and ts for the table.  Ask any question for clarification.
+Create a plan for the spec. I am building with the existing technologies for both the SPA and API REST. If technically feasible, use no library and just plain HTML and TypeScript for the table. Ask any question for clarification.
 
 # 5 Break down into tasks with "speckit.tasks".
 Just execute the previous handoff from the plan step, or select the speckit.tasks agent.
@@ -103,8 +103,8 @@ Check the consistency of the spec 001, plan and tasks with the constitution. If 
 # 7 Implement with 
 Implement the spec 001, taking into account the spec, plan and tasks.
 
-# 8 Let it finish and verify fx with Plawyright
-Verify with playwright that the spec 001 is correctly implemented
+# 8 Let it finish and verify the fix with Playwright
+Verify with Playwright that spec 001 is correctly implemented
 
 
 ```
@@ -135,8 +135,7 @@ Use the planning agent to break down the issue into tasks, and create GitHub iss
 Use skills (frontend + backend) and agents for code generation. Introduce a secret in the code to show security checks later, and also a vulnerable package.
 
 ```bash
-Using subagents, implement the tasks defined in the plan #2-user-table-plan.md. Follow best design principles for frotend in React and backend .net REST API. 
-```
+Using subagents, implement the tasks defined in the plan #2-user-table-plan.md. Follow best design principles for frontend in React and backend .NET REST API.
 
 What to highlight:
 * Where to get those skills and agents
