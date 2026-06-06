@@ -23,7 +23,9 @@ network:
   allowed:
     - defaults
 
-engine: copilot
+engine:
+  id: copilot
+  model: haiku
 timeout-minutes: 8
 strict: true
 ---
