@@ -1,5 +1,5 @@
 import { describe, it, expect, vi, beforeEach } from "vitest";
-import { login, fetchDemoData } from "../api";
+import { login, fetchDemoData, fetchUsers } from "../api";
 
 describe("login", () => {
   beforeEach(() => {
@@ -51,5 +51,45 @@ describe("fetchDemoData", () => {
     } as Response);
 
     await expect(fetchDemoData("bad-token")).rejects.toThrow("Unauthorized");
+  });
+});
+
+describe("fetchUsers", () => {
+  beforeEach(() => {
+    vi.restoreAllMocks();
+  });
+
+  it("returns users with a valid token", async () => {
+    const mockUsers = [
+      { name: "Admin", role: "admin", status: "active" },
+      { name: "Ana", role: "member", status: "active" },
+    ];
+
+    const fetchSpy = vi.spyOn(globalThis, "fetch").mockResolvedValueOnce({
+      ok: true,
+      json: () => Promise.resolve(mockUsers),
+    } as Response);
+
+    const result = await fetchUsers("valid-token");
+
+    expect(result).toHaveLength(2);
+    expect(result[0].name).toBe("Admin");
+    expect(fetchSpy).toHaveBeenCalledWith("http://localhost:5000/api/users", {
+      headers: { Authorization: "Bearer valid-token" },
+    });
+  });
+
+  it("sends empty=true query parameter when empty mode is requested", async () => {
+    const fetchSpy = vi.spyOn(globalThis, "fetch").mockResolvedValueOnce({
+      ok: true,
+      json: () => Promise.resolve([]),
+    } as Response);
+
+    const result = await fetchUsers("valid-token", { empty: true });
+
+    expect(result).toHaveLength(0);
+    expect(fetchSpy).toHaveBeenCalledWith("http://localhost:5000/api/users?empty=true", {
+      headers: { Authorization: "Bearer valid-token" },
+    });
   });
 });

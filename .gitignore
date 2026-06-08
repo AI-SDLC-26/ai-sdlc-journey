@@ -21,6 +21,11 @@ lerna-debug.log*
 
 # Local environment files
 *.local
+.env*
+
+# Temp files
+*.tmp
+*.swp
 
 # IDE/editor
 .vs/

@@ -14,8 +14,8 @@ Focus: **practical workflow, not theory**
 
 ### Repository
 
-* Frontend: table UI (basic scaffold)
-* Backend: API endpoint (minimal)
+* Frontend: authenticated `/users` page with native HTML table
+* Backend: authenticated `GET /api/users` endpoint with deterministic empty mode
 * Project builds successfully
 
 ### Copilot Configuration
@@ -83,7 +83,29 @@ Outcome:
 Generate an implementation plan using Spec Kit.
 
 ```bash
-#1 Created constitution "speckit.constitution"
+# 1 Created constitution "speckit.constitution". Check "spec-kit.constitution.md" for details.
+
+# 2 Download the Issue #2 from GitHub and "speckit.specify" it ("Answer what and why, but not how"). Check "specs/001-users-table/spec.md" for details.
+Now get the issue 2 with the GitHub MCP and create a new spec for this issue. Ask any questions you need to clarify the requirements before creating the spec. Once you have a clear understanding proceed as usual.
+
+# 3 Do a clarification round with "speckit.clarify" to be sure everything is crystal clear.
+# Answer any question.
+
+# 4 Plan with "speckit.plan" and create a step by step implementation plan.
+Create a plan for the spec. I am building with the existing technologies for both the SPA and API REST. If technically feasible, use no library and just plain HTML and TypeScript for the table. Ask any question for clarification.
+
+# 5 Break down into tasks with "speckit.tasks".
+Just execute the previous handoff from the plan step, or select the speckit.tasks agent.
+
+# 6 Check for consistency using "speckit.analyze"
+Check the consistency of the spec 001, plan and tasks with the constitution. If any violation is found, report it and suggest how to fix it. 
+
+# 7 Implement with 
+Implement the spec 001, taking into account the spec, plan and tasks.
+
+# 8 Let it finish and verify the fix with Playwright
+Verify with Playwright that spec 001 is correctly implemented
+
 
 ```
 
@@ -108,16 +130,19 @@ Use the planning agent to break down the issue into tasks, and create GitHub iss
 /project-planning-breakdown-feature-implementation using the GitHub MCP downlaod the issue #2 of this repository, then evaluate the current #codebase and ask any questions you need to clarify the requirements before creating the plan. Once you have a clear understanding of the requirements, create a step by step implementation plan in the #plans folder with the number and short name of the issue, for example: "2-user-table-plan.md".
 ```
 
-## Step 4 — Implementation
+## Step 4 — Implementation live
 
-Use skills (frontend + backend) and agents for code generation. 
+Use skills (frontend + backend) and agents for code generation. Introduce a secret in the code to show security checks later, and also a vulnerable package.
 
+```bash
+Using subagents, implement the tasks defined in the plan #2-user-table-plan.md. Follow best design principles for frontend in React and backend .NET REST API.
 
 What to highlight:
 * Where to get those skills and agents
     * Awesome copilot, Skills.sh, and Autoskills...
 * Code follows conventions
 * AI output is guided, not free-form
+* Introduce a secret for later checking
 
 
 Key point:
@@ -125,7 +150,8 @@ Key point:
 * We understand how to gather the right tools for our AI-powered SDLC
 * Commercial vs. custom agents and skills, including marketplaces
 * AI operates within defined standards
-* We help agents perform better through better guidance
+* We help agents perform better through better guidance#
+* We understand that leaking a secret is an actual risk
 
 ## Step 5 — Security and Guardrails
 
@@ -182,7 +208,7 @@ Key point:
 
 ## Step 8 — Pull Request Review
 
-Create a PR:
+Create a PR for implemented feature. Show how AI can assist in PR review:
 
 * Introduce a deliberate issue pre-cooked and show the PR conversation (PR-Review)
 
