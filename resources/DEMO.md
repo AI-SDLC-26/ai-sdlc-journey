@@ -22,14 +22,14 @@ Focus: **practical workflow, not theory**
 
 * Custom instructions (organization-level)
 * Custom agents:
-  * Planning
-  * Implementation
-  * Security
-  * PR review
+    * Planning
+    * Implementation
+    * Security
+    * PR review
 * Skills available:
-  * Planning
-  * Vertical slicing
-  * Implementation
+    * Planning
+    * Vertical slicing
+    * Implementation
 
 ## Step 1 — Improve Issue Quality
 
@@ -59,6 +59,7 @@ Given no users, when they enter the /users page, then they will be presented wit
 
 ...
 ```
+
 More details at [Issue 2.](https://github.com/AI-SDLC-26/ai-sdlc-journey/issues/2)
 
 Key point:
@@ -98,13 +99,13 @@ Create a plan for the spec. I am building with the existing technologies for bot
 Just execute the previous handoff from the plan step, or select the speckit.tasks agent.
 
 # 6 Check for consistency using "speckit.analyze"
-Check the consistency of the spec 001, plan and tasks with the constitution. If any violation is found, report it and suggest how to fix it. 
+Check the consistency of the spec 001, plan and tasks with the constitution. If any violation is found, report it and suggest how to fix it.
 
-# 7 Implement with 
+# 7 Implement with
 Implement the spec 001, taking into account the spec, plan and tasks.
 
-# 8 Let it finish and verify the fix with Playwright
-Verify with Playwright that spec 001 is correctly implemented
+# 8 Let it finish and verify the functionality with Playwright
+Verify with Playwright that the spec 001 is correctly implemented
 
 
 ```
@@ -112,11 +113,11 @@ Verify with Playwright that spec 001 is correctly implemented
 Output:
 
 * Task breakdown:
-  * Create API endpoint
-  * Create frontend table
-  * Integrate data
-  * Add validation
-  * Manage loading states and errors
+    * Create API endpoint
+    * Create frontend table
+    * Integrate data
+    * Add validation
+    * Manage loading states and errors
 
 Key point:
 
@@ -124,26 +125,52 @@ Key point:
 
 ## Step 3.bis — Task breakdown with agent
 
-Use the planning agent to break down the issue into tasks, and create GitHub issues for each task.
+Use the planning agent to break down the issue into tasks, and create GitHub
+issues for each task.
 
 ```bash
 /project-planning-breakdown-feature-implementation using the GitHub MCP downlaod the issue #2 of this repository, then evaluate the current #codebase and ask any questions you need to clarify the requirements before creating the plan. Once you have a clear understanding of the requirements, create a step by step implementation plan in the #plans folder with the number and short name of the issue, for example: "2-user-table-plan.md".
 ```
 
-## Step 4 — Implementation live
+## Step 4 — Implementation live improving the original mess
 
-Use skills (frontend + backend) and agents for code generation. Introduce a secret in the code to show security checks later, and also a vulnerable package.
+Use skills (frontend + backend) and agents for code generation. Introduce a
+secret in the code to show security checks later, and also a vulnerable package.
+
+Our goal here is to improve the code and show GHAS in action
 
 ```bash
-Using subagents, implement the tasks defined in the plan #2-user-table-plan.md. Follow best design principles for frontend in React and backend .NET REST API.
+# Select the C# Expert agent from the organization
+
+Using subagents and skills, I want you to plan a refactor of the REST API.
+
+First, you should break the #Program.cs into multiple files following C# Best Design principles. Then, assess if we have more oportunities to improve the code structure, suggest at least 2 of them first, prioritized by impact in quality and once aproved implement them.
+```
+
+Check the result of this plan at `4-refactor-implementation-plan.md`.
+
+Second, introduce moment vulnerability:
+
+```bash
+cd src/spa
+npm i moment@2.29.1 # Has high severity vulnerability (CVE-2022-24785)
+```
+
+Third, introduce some secrets:
+
+```bash
+# Create a .env file in the root of the repository with the following content
+SECRET_PAT=github_XYZ
+DEMO_FAKE_TOKEN=ghp_XYZ
+```
 
 What to highlight:
+
 * Where to get those skills and agents
     * Awesome copilot, Skills.sh, and Autoskills...
 * Code follows conventions
 * AI output is guided, not free-form
 * Introduce a secret for later checking
-
 
 Key point:
 
@@ -161,27 +188,19 @@ Demonstrate built-in protections in GitHub + Copilot.
 
 * Attempt to commit secret
 * Show GitHub Advanced Security blocking it
+* Only the Security Team can bypass the secret protection
 
 ### Dependency Risk
 
 * Introduce vulnerable package
 * Show Dependabot alert
 
-### Automated Checks
-
-* Linting hooks
-* Security agent review
-
-Optional:
-
-* CodeQL scan
-
 Key point:
 
 * AI code is treated the same as human code
 * Guardrails are mandatory and can be automated
 
-## Step 6 — Supply Chain Monitoring
+### Supply Chain Monitoring
 
 Show Dependabot insights:
 
@@ -193,24 +212,26 @@ Key point:
 
 * Security is continuous, not a phase
 
-## Step 7 — Code Quality Analysis
+## Step 6 — Code Quality Analysis
 
-Run CodeQL:
+Explore CodeQL either the automatic workflow or tuned-in to show:
 
 * Show findings (if any)
 * Highlight supported stacks:
-  * TypeScript
-  * .NET
+    * TypeScript
+    * .NET
 
 Key point:
 
 * Quality and security are integrated
 
-## Step 8 — Pull Request Review
+## Step 7 — Pull Request Review
 
 Create a PR for implemented feature. Show how AI can assist in PR review:
 
 * Introduce a deliberate issue pre-cooked and show the PR conversation (PR-Review)
+* Show the use of specific custom agents for PR review like C# Expert or
+Security Reviewer.
 
 Show:
 
@@ -223,7 +244,27 @@ Key point:
 * Enables consistent reviews across teams
 * Helps as first-pass feedback, not a replacement for human judgment
 
-## Step 9 — Organization Standards
+## Step 8 — Token Optimization
+
+Show techniques:
+
+* Compact prompts
+* Reusable instructions
+* Semantic anchors
+* Token usage reducers
+* Token audit: /chronicle (CLI)
+
+Key point:
+
+* Efficiency matters in real usage
+* Billing changed from May 2026
+
+References:
+
+* <https://ashy-dune-0b4215a0f.7.azurestaticapps.net/>
+* <https://github.com/rtk-ai/rtk>
+
+## Additional 1 — Organization Standards -> This is a cross feature
 
 Show custom instructions:
 
@@ -239,27 +280,10 @@ Key point:
 
 * Governance is centralized
 
-## Additional Step 10 — Token Optimization
+## Additional 2 — Remote Control -> This is a cross feature
 
-Show techniques:
-
-* Compact prompts
-* Reusable instructions
-* Semantic anchors
-* Token usage reducers
-
-Key point:
-
-* Efficiency matters in real usage
-* Billing changed from May 2026
-
-References:
-* https://ashy-dune-0b4215a0f.7.azurestaticapps.net/
-* https://github.com/rtk-ai/rtk
-
-## Additional Step 11 — Remote Control
-
-Show how AI can be used from a mobile device to review sessions and trigger follow-up action. Use of `/remote` from the GitHub CLI.
+Show how AI can be used from a mobile device to review sessions and trigger
+follow-up action. Use of `/remote` from the GitHub CLI.
 
 ## Summary
 
