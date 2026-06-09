@@ -31,7 +31,7 @@ Focus: **practical workflow, not theory**
     * Vertical slicing
     * Implementation
 
-## Step 1 — Improve Issue Quality
+## Step 1 — Improve Issue Quality (LF)
 
 Start with a weakly defined [issue](https://github.com/AI-SDLC-26/ai-sdlc-journey/issues/1):
 
@@ -41,7 +41,6 @@ As a user, I want to see my data in a new table in the browser. [...]
 
 Use a GitHub Agentic Workflow (AW) with a template to refine it:
 
-* Ask clarifying questions
 * Add missing details
 * Define acceptance criteria
 * Get the issue ready for implementation
@@ -66,7 +65,7 @@ Key point:
 
 * Quality is enforced before coding starts
 
-## Step 2 — Retrieve the Issue (MCP)
+## Step 2 — Retrieve the Issue (MCP) (LF)
 
 After refining the issue, bring it into the workspace using GitHub MCP.
 
@@ -79,7 +78,7 @@ Outcome:
 * Structured input ready for planning
 * No manual context switching
 
-## Step 3 — Planning (Spec Driven Development)
+## Step 3 — Planning (Spec Driven Development) (DR)
 
 Generate an implementation plan using Spec Kit.
 
@@ -123,7 +122,7 @@ Key point:
 
 * AI structures the work before implementation
 
-## Step 3.bis — Task breakdown with agent
+## Step 3.bis — Task breakdown with agent (LF)
 
 Use the planning agent to break down the issue into tasks, and create GitHub
 issues for each task.
@@ -132,7 +131,7 @@ issues for each task.
 /project-planning-breakdown-feature-implementation using the GitHub MCP downlaod the issue #2 of this repository, then evaluate the current #codebase and ask any questions you need to clarify the requirements before creating the plan. Once you have a clear understanding of the requirements, create a step by step implementation plan in the #plans folder with the number and short name of the issue, for example: "2-user-table-plan.md".
 ```
 
-## Step 4 — Implementation live improving the original mess
+## Step 4 — Implementation live improving the original mess (DR)
 
 Use skills (frontend + backend) and agents for code generation. Introduce a
 secret in the code to show security checks later, and also a vulnerable package.
@@ -212,7 +211,7 @@ Key point:
 
 * Security is continuous, not a phase
 
-## Step 6 — Code Quality Analysis
+## Step 6 — Code Quality Analysis (LF)
 
 Explore CodeQL either the automatic workflow or tuned-in to show:
 
@@ -225,7 +224,7 @@ Key point:
 
 * Quality and security are integrated
 
-## Step 7 — Pull Request Review
+## Step 7 — Pull Request Review (LF)
 
 Create a PR for implemented feature. Show how AI can assist in PR review:
 
@@ -244,7 +243,7 @@ Key point:
 * Enables consistent reviews across teams
 * Helps as first-pass feedback, not a replacement for human judgment
 
-## Step 8 — Token Optimization
+## Step 8 — Token Optimization (TR)
 
 Show techniques:
 
