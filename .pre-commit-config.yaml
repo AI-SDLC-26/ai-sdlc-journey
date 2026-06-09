@@ -3,7 +3,7 @@
 default_language_version:
   python: python3
 # Define a global exclude pattern for AI-generated and openspec folders
-exclude: '^(openspec/|\.github/(skills|prompts|agents|commands)/)'
+exclude: '^(openspec/|\.claude/|\.specify/|resources/|specs/|\.github/(skills|prompts|agents|commands)/|\.github/workflows/[^/]*\.(lock\.yml|md))'
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks.git
     rev: v6.0.0

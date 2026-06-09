@@ -12,9 +12,7 @@ This repository contains:
 
 - Backend: ASP.NET Core Minimal API (.NET 10), JWT Bearer auth, OpenAPI, Scalar
 - Frontend: React 19, TypeScript, Vite, React Router
-- Testing:
-	- API: xUnit + WebApplicationFactory
-	- SPA: Vitest + Testing Library
+- Testing: - API: xUnit + WebApplicationFactory - SPA: Vitest + Testing Library
 
 ## Repository Layout
 
@@ -44,7 +42,7 @@ dotnet run
 
 API default URL: `http://localhost:5000`
 
-2. Start the SPA
+1. Start the SPA
 
 ```bash
 cd src/spa
@@ -61,18 +59,14 @@ SPA default URL: `http://localhost:5173`
 
 ## API Endpoints
 
-- `GET /health`
-	- Returns `{ "status": "healthy" }`
-- `POST /auth/login`
-	- Request body: `{ "username": "admin", "password": "admin" }`
-	- Returns JWT token payload: `{ token, name, role }`
-- `GET /api/demo`
-	- Requires `Authorization: Bearer <token>`
-	- Returns demo message, items, and generation timestamp
-- `GET /api/users`
-	- Requires `Authorization: Bearer <token>`
-	- Returns predefined mock users on default calls
-	- Supports `?empty=true` for deterministic empty-state validation
+- `GET /health` - Returns `{ "status": "healthy" }`
+- `POST /auth/login` - Request body: `{ "username": "admin", "password": "admin"
+    }` - Returns JWT token payload: `{ token, name, role }`
+- `GET /api/demo` - Requires `Authorization: Bearer <token>` - Returns demo
+    message, items, and generation timestamp
+- `GET /api/users` - Requires `Authorization: Bearer <token>` - Returns
+    predefined mock users on default calls - Supports `?empty=true` for
+    deterministic empty-state validation
 
 OpenAPI JSON: `http://localhost:5000/openapi/v1.json`
 
@@ -105,8 +99,10 @@ From `src/spa`:
 ## Users Flow
 
 - Sign in with demo credentials.
-- Open `/users` to view the native HTML table with `Name`, `Role`, and `Status` columns.
-- Open `/users?empty=true` to validate the exact empty-state message: `No available users`.
+- Open `/users` to view the native HTML table with `Name`, `Role`, and `Status`
+  columns.
+- Open `/users?empty=true` to validate the exact empty-state message: `No
+  available users`.
 - If not authenticated, navigation to `/users` redirects to `/`.
 
 ## Configuration Notes
