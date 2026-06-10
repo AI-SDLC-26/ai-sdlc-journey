@@ -179,9 +179,29 @@ Key point:
 * We help agents perform better through better guidance#
 * We understand that leaking a secret is an actual risk
 
-## Step 5 — Security and Guardrails
+## Step 5 — Security and Guardrails (DR)
 
-Demonstrate built-in protections in GitHub + Copilot.
+Demonstrate built-in protections in GitHub + Copilot. How?
+
+```bash
+# 1. Add a secret in the .env file with a GitHub PAT
+echo "GITHUB_PAT=your_github_pat_here" >> .env
+
+# 2. Attempt to commit the .env file with the secret and the previously created
+# code in step 4.
+git commit ...
+
+# 3. Evaluate what happens on the terminal
+
+# 4. Show the security panels (Security & Quality) in GitHub Advanced Security
+#   - Dependabot
+#   - Secret scanning
+#   - Code scanning
+#   - The PR created by Dependabot
+
+```
+
+Key ideas:
 
 ### Push Protection
 
@@ -226,7 +246,11 @@ Key point:
 
 ## Step 7 — Pull Request Review (LF)
 
-Create a PR for implemented feature. Show how AI can assist in PR review:
+Push changes & create a PR for the previously implemented feature (refactor Program.cs).
+> If we have enough time, show the (repository / organization codding agents)
+in GitHub (C# Exert, Security Reviewer...).
+
+Show how AI can assist in PR review:
 
 * Introduce a deliberate issue pre-cooked and show the PR conversation (PR-Review)
 * Show the use of specific custom agents for PR review like C# Expert or
