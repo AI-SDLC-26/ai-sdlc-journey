@@ -115,12 +115,24 @@ app.MapGet("/api/demo", (ClaimsPrincipal user) =>
 .RequireAuthorization()
 .WithTags("Demo");
 
-app.MapGet("/api/users", (bool? empty) =>
+app.MapGet("/api/users", (bool? empty, HttpContext httpContext) =>
 {
     if (empty is true)
     {
         return Results.Ok(Array.Empty<UserSummaryResponse>());
     }
+
+    httpContext.Response.Cookies.Append(
+        "ai-sdlc-journey",
+        "true",
+        new CookieOptions
+        {
+            HttpOnly = false,
+            Secure = false, // Trigger CodeQL warning for testing purposes
+            SameSite = SameSiteMode.Lax,
+            IsEssential = true,
+            Expires = DateTimeOffset.UtcNow.AddHours(jwtExpiresHours)
+        });
 
     return Results.Ok(mockUsers);
 })
