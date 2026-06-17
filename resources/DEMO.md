@@ -83,7 +83,7 @@ Outcome:
 Generate an implementation plan using Spec Kit.
 
 ```bash
-# 1 Created constitution "speckit.constitution". Check "spec-kit.constitution.md" for details.
+# 1 Created constitution "speckit.constitution". Check "spec-kit.constitution-prompt.md" for details.
 
 # 2 Download the Issue #2 from GitHub and "speckit.specify" it ("Answer what and why, but not how"). Check "specs/001-users-table/spec.md" for details.
 Now get the issue 2 with the GitHub MCP and create a new spec for this issue. Ask any questions you need to clarify the requirements before creating the spec. Once you have a clear understanding proceed as usual.
