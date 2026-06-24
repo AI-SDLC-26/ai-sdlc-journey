@@ -46,7 +46,7 @@ export default function DashboardPage() {
                 </div>
               </div>
               <div className="app-shell__metric">
-                <p className="app-shell__metric-label">Items</p>
+                <p className="app-shell__metric-label">Item list</p>
                 <ul className="app-shell__list">
                   {data.items.map((item) => (
                     <li key={item}>{item}</li>

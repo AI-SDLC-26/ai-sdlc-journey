@@ -3,6 +3,7 @@ import { render, screen } from "@testing-library/react";
 import { MemoryRouter, Route, Routes } from "react-router";
 import { AuthProvider } from "../auth/AuthContext";
 import UsersPage from "../pages/UsersPage";
+import { getStatusSlug } from "../utils/status";
 
 describe("UsersPage", () => {
   beforeEach(() => {
@@ -76,5 +77,11 @@ describe("UsersPage", () => {
     );
 
     expect(await screen.findByText("Home Route")).toBeDefined();
+  });
+
+  it("normalizes status text into a status slug", () => {
+    expect(getStatusSlug("On Hold")).toBe("on-hold");
+    expect(getStatusSlug("MIXED Case Value")).toBe("mixed-case-value");
+    expect(getStatusSlug("")).toBe("");
   });
 });

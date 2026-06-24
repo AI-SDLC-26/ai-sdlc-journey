@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Link, Navigate, useLocation } from "react-router";
 import { fetchUsers, type UserSummary } from "../api";
 import { useAuth } from "../auth/auth-context";
+import { getStatusSlug } from "../utils/status";
 
 export default function UsersPage() {
   const { user, logout } = useAuth();
@@ -76,8 +77,4 @@ export default function UsersPage() {
       </section>
     </main>
   );
-}
-
-function getStatusSlug(status: string) {
-  return status.toLowerCase().replace(/\s+/g, "-");
 }
