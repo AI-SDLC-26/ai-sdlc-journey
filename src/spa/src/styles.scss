@@ -366,6 +366,14 @@ button {
   background: var(--danger);
 }
 
+.app-shell__status--unknown {
+  color: var(--text-muted);
+}
+
+.app-shell__status--unknown::before {
+  background: var(--text-subtle);
+}
+
 .app-shell__empty-state {
   margin-top: 1.5rem;
   padding: 1rem 1.1rem;

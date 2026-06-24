@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Link, Navigate, useLocation } from "react-router";
 import { fetchUsers, type UserSummary } from "../api";
 import { useAuth } from "../auth/auth-context";
-import { getStatusSlug } from "../utils/status";
+import { getStatusClassName } from "../utils/status";
 
 export default function UsersPage() {
   const { user, logout } = useAuth();
@@ -65,7 +65,7 @@ export default function UsersPage() {
                       <td>{entry.name}</td>
                       <td>{entry.role}</td>
                       <td>
-                        <span className={`app-shell__status app-shell__status--${getStatusSlug(entry.status)}`}>{entry.status}</span>
+                        <span className={`app-shell__status ${getStatusClassName(entry.status)}`}>{entry.status}</span>
                       </td>
                     </tr>
                   ))}
