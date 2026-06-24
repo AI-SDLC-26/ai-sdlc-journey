@@ -19,7 +19,7 @@ describe("HomePage", () => {
     );
 
     expect(screen.getByText("Hello!")).toBeDefined();
-    expect(screen.getByText(/Please log in/)).toBeDefined();
+    expect(screen.getByText(/Sign in to continue/)).toBeDefined();
   });
 
   it("shows login form inputs", () => {

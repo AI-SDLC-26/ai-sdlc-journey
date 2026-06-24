@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Navigate } from "react-router";
+import { Link, Navigate } from "react-router";
 import { useAuth } from "../auth/auth-context";
 import { fetchDemoData, type DemoData } from "../api";
 
@@ -18,24 +18,45 @@ export default function DashboardPage() {
   if (!user) return <Navigate to="/" replace />;
 
   return (
-    <div style={{ textAlign: "center", marginTop: "4rem" }}>
-      <h1>Logged in {user.name}</h1>
-      <div style={{ marginBottom: "2rem", display: "flex", gap: "1rem", justifyContent: "center" }}>
-        <a href="/users">Go to Users</a>
-        <button onClick={logout}>Logout</button>
-      </div>
-      {error && <p style={{ color: "red" }}>{error}</p>}
-      {data && (
-        <div>
-          <p>{data.message}</p>
-          <ul style={{ listStyle: "none", padding: 0 }}>
-            {data.items.map((item) => (
-              <li key={item}>{item}</li>
-            ))}
-          </ul>
-          <small>Generated at: {data.generatedAt}</small>
+    <main className="app-shell">
+      <section className="app-shell__card">
+        <div className="app-shell__card-inner">
+          <p className="app-shell__eyebrow">Live demo feed</p>
+          <h1 className="app-shell__title">Logged in as {user.name}.</h1>
+          <p className="app-shell__copy">The dashboard stays intentionally focused: a few signals, clear contrast, and no visual clutter.</p>
+          <div className="app-shell__toolbar">
+            <Link className="app-link-button" to="/users">Go to Users</Link>
+            <button className="app-button" type="button" onClick={logout}>Logout</button>
+          </div>
+          {error && <p className="app-shell__banner">{error}</p>}
+          {data && (
+            <div className="app-shell__grid">
+              <div className="app-shell__metric-list">
+                <div className="app-shell__metric">
+                  <p className="app-shell__metric-label">Message</p>
+                  <p className="app-shell__metric-value">{data.message}</p>
+                </div>
+                <div className="app-shell__metric">
+                  <p className="app-shell__metric-label">Items</p>
+                  <p className="app-shell__metric-value">{data.items.length} entries</p>
+                </div>
+                <div className="app-shell__metric">
+                  <p className="app-shell__metric-label">Generated</p>
+                  <p className="app-shell__metric-value">{data.generatedAt}</p>
+                </div>
+              </div>
+              <div className="app-shell__metric">
+                <p className="app-shell__metric-label">Items</p>
+                <ul className="app-shell__list">
+                  {data.items.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          )}
         </div>
-      )}
-    </div>
+      </section>
+    </main>
   );
 }
