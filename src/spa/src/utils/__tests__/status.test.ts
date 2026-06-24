@@ -13,4 +13,8 @@ describe("getStatusClassName", () => {
   it("returns the unknown class for blank statuses", () => {
     expect(getStatusClassName("")).toBe("app-shell__status--unknown");
   });
+
+  it("returns the unknown class for whitespace-only statuses", () => {
+    expect(getStatusClassName("   ")).toBe("app-shell__status--unknown");
+  });
 });
