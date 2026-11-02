@@ -18,7 +18,6 @@ tools:
 
 safe-outputs:
   mentions: false
-  allowed-github-references: []
   create-issue:
     title-prefix: "Context Gatekeeper: "
     max: 1
@@ -132,5 +131,8 @@ execute remediation. Do not add assignees or notify owners with mentions.
 Runs weekly or manually from GitHub Actions. Commit this source and its compiled
 `context-gatekeeper.lock.yml` together. Each run audits its checked-out revision;
 clean audits produce no GitHub issue. Earlier reports remain for owners to resolve.
+Keep the default GitHub reference handling: in gh-aw v1.0.1, an
+`allowed-github-references` restriction can mistake source-link line anchors for
+issue references and corrupt the published URLs. Owner mentions remain disabled.
 The default Copilot engine requires the `COPILOT_GITHUB_TOKEN` Actions secret,
 as with the repository's existing agentic workflow.
