@@ -1,0 +1,8 @@
+{
+  "version": 1,
+  "hooks": {
+    "preToolUse": [
+      { "type": "command", "bash": "./.github/hooks/protect-paths.sh", "cwd": ".", "timeoutSec": 10 }
+    ]
+  }
+}

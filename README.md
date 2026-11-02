@@ -86,6 +86,19 @@ cd src/spa
 npm test
 ```
 
+## Pre-commit Checks
+
+The [pre-commit workflow](.github/workflows/pre-commit.yml) runs the configured
+hooks against all tracked files on pushes and pull requests. It can also be
+started manually from GitHub Actions. CI skips only `no-commit-to-branch`,
+which is a local commit guard.
+
+To run the checks locally after installing `pre-commit`:
+
+```bash
+pre-commit run --all-files --show-diff-on-failure
+```
+
 ## Useful SPA Commands
 
 From `src/spa`:
