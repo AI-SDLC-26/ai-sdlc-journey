@@ -69,7 +69,7 @@ Key point:
 
 After refining the issue, bring it into the workspace using GitHub MCP.
 
-```bash
+```text
 Retrieve issue number 2 of this repository from GitHub and load it into the workspace for analysis and implementation planning.
 ```
 
@@ -78,56 +78,12 @@ Outcome:
 * Structured input ready for planning
 * No manual context switching
 
-## Step 3 — Planning (Spec Driven Development) (DR)
-
-Generate an implementation plan using Spec Kit.
-
-```bash
-# 1 Created constitution "speckit.constitution". Check "spec-kit.constitution-prompt.md" for details.
-
-# 2 Download the Issue #2 from GitHub and "speckit.specify" it ("Answer what and why, but not how"). Check "specs/001-users-table/spec.md" for details.
-Now get the issue 2 with the GitHub MCP and create a new spec for this issue. Ask any questions you need to clarify the requirements before creating the spec. Once you have a clear understanding proceed as usual.
-
-# 3 Do a clarification round with "speckit.clarify" to be sure everything is crystal clear.
-# Answer any question.
-
-# 4 Plan with "speckit.plan" and create a step by step implementation plan.
-Create a plan for the spec. I am building with the existing technologies for both the SPA and API REST. If technically feasible, use no library and just plain HTML and TypeScript for the table. Ask any question for clarification.
-
-# 5 Break down into tasks with "speckit.tasks".
-Just execute the previous handoff from the plan step, or select the speckit.tasks agent.
-
-# 6 Check for consistency using "speckit.analyze"
-Check the consistency of the spec 001, plan and tasks with the constitution. If any violation is found, report it and suggest how to fix it.
-
-# 7 Implement with
-Implement the spec 001, taking into account the spec, plan and tasks.
-
-# 8 Let it finish and verify the functionality with Playwright
-Verify with Playwright that the spec 001 is correctly implemented
-
-
-```
-
-Output:
-
-* Task breakdown:
-    * Create API endpoint
-    * Create frontend table
-    * Integrate data
-    * Add validation
-    * Manage loading states and errors
-
-Key point:
-
-* AI structures the work before implementation
-
-## Step 3.bis — Task breakdown with agent (LF)
+## Step 3 — Task breakdown with agent (LF)
 
 Use the planning agent to break down the issue into tasks, and create GitHub
 issues for each task.
 
-```bash
+```text
 /project-planning-breakdown-feature-implementation using the GitHub MCP downlaod the issue #2 of this repository, then evaluate the current #codebase and ask any questions you need to clarify the requirements before creating the plan. Once you have a clear understanding of the requirements, create a step by step implementation plan in the #plans folder with the number and short name of the issue, for example: "2-user-table-plan.md".
 ```
 
@@ -138,7 +94,7 @@ secret in the code to show security checks later, and also a vulnerable package.
 
 Our goal here is to improve the code and show GHAS in action
 
-```bash
+```text
 # Select the C# Expert agent from the organization
 
 Using subagents and skills, I want you to plan a refactor of the REST API.
