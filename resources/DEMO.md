@@ -136,57 +136,26 @@ Key point:
 
 * Good context must stay accurate as the repository evolves
 
-## Step 5 — Security and Guardrails (DR)
+## Step 5 — Hooks + policies (DR)
 
-Demonstrate built-in protections in GitHub + Copilot. How?
+Show how repository hooks and a shared path policy keep governance files under
+human control.
 
-```bash
-# 1. Add a secret in the .env file with a GitHub PAT
-echo "GITHUB_PAT=your_github_pat_here" >> .env
+Ask Copilot to make a small wording change to an issue template under
+`.github/ISSUE_TEMPLATE/`. The pre-tool hook should block the edit and point to
+`policy/protected-paths.txt`; stop there rather than trying another way to make
+the change.
 
-# 2. Attempt to commit the .env file with the secret and the previously created
-# code in step 4.
-git commit ...
+Then show the layers behind that decision:
 
-# 3. Evaluate what happens on the terminal
+* `policy/protected-paths.txt` lists protected paths, including issue templates,
+  hooks, `AGENTS.md`, and the root policy and scripts
+* `AGENTS.md` tells contributors that listed paths are off limits and that hooks
+  enforce the rule
+* `scripts/is-protected.sh` checks a path against the policy; for example:
 
-# 4. Show the security panels (Security & Quality) in GitHub Advanced Security
-#   - Dependabot
-#   - Secret scanning
-#   - Code scanning
-#   - The PR created by Dependabot
-
-```
-
-Key ideas:
-
-### Push Protection
-
-* Attempt to commit secret
-* Show GitHub Advanced Security blocking it
-* Only the Security Team can bypass the secret protection
-
-### Dependency Risk
-
-* Introduce vulnerable package
-* Show Dependabot alert
-
-Key point:
-
-* AI code is treated the same as human code
-* Guardrails are mandatory and can be automated
-
-### Supply Chain Monitoring
-
-Show Dependabot insights:
-
-* Vulnerabilities
-* CVE references
-* Suggested fixes
-
-Key point:
-
-* Security is continuous, not a phase
+  ```bash
+  ./scripts/is-protected.sh ".github/ISSUE_TEMPLATE/<template-file>"
 
 ## Step 6 — Code Quality Analysis (LF)
 

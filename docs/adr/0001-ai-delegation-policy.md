@@ -6,7 +6,7 @@ Agents may read the repository and propose changes as draft pull requests.
 They may not touch paths in policy/protected-paths.txt, push to main, approve, merge or deploy.
 
 ## Enforcement (not the prompt)
-- Hooks: .claude/hooks/protect-paths.sh, .github/hooks/protect-paths.sh
+- Hooks: .github/hooks/protect-paths.sh
 - CI: scripts/check-policy-diff.sh, scripts/check-context.sh
 - Review: CODEOWNERS + ruleset "require review from code owners"
 

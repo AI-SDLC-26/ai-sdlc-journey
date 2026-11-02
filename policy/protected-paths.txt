@@ -4,6 +4,7 @@
 \.github/workflows/
 \.github/hooks/
 \.github/CODEOWNERS
+\.github/ISSUE_TEMPLATE/
 \.claude/
 (^|[/ "'])\.env($|[^.a-z])
 # repo-root policy/ and scripts/ only (optionally ./), so web/src/policy/ stays editable
