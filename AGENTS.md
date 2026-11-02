@@ -4,6 +4,8 @@ shell commands, and other important information, read the current plan:
 specs/001-users-table/plan.md
 <!-- SPECKIT END -->
 
+<!-- owner: platform team | review when docs/adr/0001-ai-delegation-policy.md changes -->
+
 # Copilot Instructions — AI SDLC Journey
 
 ## Repository Overview
@@ -62,3 +64,7 @@ The `openspec/` directory contains spec-driven planning artifacts (specs, change
 
 ### Scoped Instruction Files
 `.github/instructions/csharp.instructions.md` (applies to `**/*.cs`) and `.github/instructions/aspnet-rest-apis.instructions.md` (applies to `**/*.cs, **/*.json`) contain detailed C# and ASP.NET conventions. Copilot applies these automatically — refer to them for language-level style decisions.
+
+## Other guidance
+
+- Paths listed in policy/protected-paths.txt are off limits. Hooks enforce this; do not try to work around them.
