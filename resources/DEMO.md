@@ -104,21 +104,6 @@ First, you should break the #Program.cs into multiple files following C# Best De
 
 Check the result of this plan at `4-refactor-implementation-plan.md`.
 
-Second, introduce moment vulnerability:
-
-```bash
-cd src/spa
-npm i moment@2.29.1 # Has high severity vulnerability (CVE-2022-24785)
-```
-
-Third, introduce some secrets:
-
-```bash
-# Create a .env file in the root of the repository with the following content
-SECRET_PAT=github_XYZ
-DEMO_FAKE_TOKEN=ghp_XYZ
-```
-
 What to highlight:
 
 * Where to get those skills and agents
@@ -134,6 +119,22 @@ Key point:
 * AI operates within defined standards
 * We help agents perform better through better guidance#
 * We understand that leaking a secret is an actual risk
+
+## Step 4.1 - Importance of the context
+
+Agents rely on context for commands, structure, and conventions. Stale guidance
+can send them down the wrong path, even when the code is correct.
+
+Run the [Context Gatekeeper AW](../.github/workflows/context-gatekeeper.md):
+
+* Compare agent instructions and ADRs with the actual code and CI
+* Show drift: Spec Kit was removed, but [AGENTS.md](../AGENTS.md) still references its plan
+* Open one issue with evidence and suggested context fixes; file owners decide
+* If everything matches, create no issue
+
+Key point:
+
+* Good context must stay accurate as the repository evolves
 
 ## Step 5 — Security and Guardrails (DR)
 
