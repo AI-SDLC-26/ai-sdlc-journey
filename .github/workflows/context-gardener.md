@@ -8,7 +8,7 @@ permissions:
   issues: read
   copilot-requests: write
 engine: copilot
-model: gpt-6-luna
+model: claude-sonnet-5.5
 safe-outputs:
   create-issue:
     title-prefix: "[context drift] "
