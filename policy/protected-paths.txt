@@ -1,0 +1,13 @@
+# owner: security team. One extended regular expression per line; comments on their own lines only.
+# Matched against repo-relative file paths (hooks strip the repo root first, CI uses git diff)
+# and against command text (hooks).
+\.github/workflows/
+\.github/hooks/
+\.github/CODEOWNERS
+\.claude/
+(^|[/ "'])\.env($|[^.a-z])
+# repo-root policy/ and scripts/ only (optionally ./), so web/src/policy/ stays editable
+(^|[ "'])(\./)?policy/
+(^|[ "'])(\./)?scripts/
+(^|[ "'])(\./)?(AGENTS|CLAUDE)\.md
+migrations/
