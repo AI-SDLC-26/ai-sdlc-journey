@@ -120,7 +120,7 @@ Key point:
 * We help agents perform better through better guidance#
 * We understand that leaking a secret is an actual risk
 
-## Step 4.1 - Importance of the context
+## Step 4.1 - Importance of the context (LF)
 
 Agents rely on context for commands, structure, and conventions. Stale guidance
 can send them down the wrong path, even when the code is correct.
@@ -156,6 +156,16 @@ Then show the layers behind that decision:
 
   ```bash
   ./scripts/is-protected.sh ".github/ISSUE_TEMPLATE/<template-file>"
+
+  ```
+
+* A CI diff check rejects protected-file changes in AI-assisted PRs and warns
+  when a human-authored PR changes them.
+
+Key point:
+
+* Repository instructions explain the boundaries; hooks and CI enforce them.
+* Protected governance changes remain subject to human review.
 
 ## Step 6 — Code Quality Analysis (LF)
 
