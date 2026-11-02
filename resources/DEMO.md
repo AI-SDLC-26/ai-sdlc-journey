@@ -84,15 +84,12 @@ Use the planning agent to break down the issue into tasks, and create GitHub
 issues for each task.
 
 ```text
-/project-planning-breakdown-feature-implementation using the GitHub MCP downlaod the issue #2 of this repository, then evaluate the current #codebase and ask any questions you need to clarify the requirements before creating the plan. Once you have a clear understanding of the requirements, create a step by step implementation plan in the #plans folder with the number and short name of the issue, for example: "2-user-table-plan.md".
+/project-planning-breakdown-feature-implementation using the GitHub MCP downlaod the issue #2 of this repository, then evaluate the current codebase and ask any questions you need to clarify the requirements before creating the plan. Once you have a clear understanding of the requirements, create a step by step implementation plan in the #plans folder with the number and short name of the issue, for example: "2-user-table-plan.md".
 ```
 
 ## Step 4 — Implementation live improving the original mess (DR)
 
-Use skills (frontend + backend) and agents for code generation. Introduce a
-secret in the code to show security checks later, and also a vulnerable package.
-
-Our goal here is to improve the code and show GHAS in action
+Use skills (frontend + backend) and agents for code generation. 
 
 ```text
 # Select the C# Expert agent from the organization
@@ -110,7 +107,6 @@ What to highlight:
     * Awesome copilot, Skills.sh, and Autoskills...
 * Code follows conventions
 * AI output is guided, not free-form
-* Introduce a secret for later checking
 
 Key point:
 
@@ -120,7 +116,7 @@ Key point:
 * We help agents perform better through better guidance#
 * We understand that leaking a secret is an actual risk
 
-## Step 4.1 - Importance of the context (LF)
+## Step 5 - Importance of the context (LF)
 
 Agents rely on context for commands, structure, and conventions. Stale guidance
 can send them down the wrong path, even when the code is correct.
@@ -128,7 +124,8 @@ can send them down the wrong path, even when the code is correct.
 Run the [Context Gatekeeper AW](../.github/workflows/context-gatekeeper.md):
 
 * Compare agent instructions and ADRs with the actual code and CI
-* Show drift: Spec Kit was removed, but [AGENTS.md](../AGENTS.md) still references its plan
+* Show drift: Spec Kit was removed, but [AGENTS.md](../AGENTS.md) still
+  references its plan
 * Open one issue with evidence and suggested context fixes; file owners decide
 * If everything matches, create no issue
 
@@ -136,7 +133,9 @@ Key point:
 
 * Good context must stay accurate as the repository evolves
 
-## Step 5 — Hooks + policies (DR)
+TODO @diegoRodriVa Create instruction for check-references.md
+
+## Step 6 — Hooks + policies (DR)
 
 Show how repository hooks and a shared path policy keep governance files under
 human control.
@@ -167,7 +166,11 @@ Key point:
 * Repository instructions explain the boundaries; hooks and CI enforce them.
 * Protected governance changes remain subject to human review.
 
-## Step 6 — Code Quality Analysis (LF)
+### Step 6.1 - Show policies at repo/org level (LF)
+
+* Review settings in <https://github.com/AI-SDLC-26/ai-sdlc-journey/settings/copilot/content_exclusion>.
+
+## Step 7 — OPTIONAL: Code Quality Analysis (LF)
 
 Explore CodeQL either the automatic workflow or tuned-in to show:
 
@@ -202,51 +205,3 @@ Key point:
 
 * Enables consistent reviews across teams
 * Helps as first-pass feedback, not a replacement for human judgment
-
-## Step 8 — Token Optimization (TR)
-
-Show techniques:
-
-* Compact prompts
-* Reusable instructions
-* Semantic anchors
-* Token usage reducers
-* Token audit: /chronicle (CLI)
-
-Key point:
-
-* Efficiency matters in real usage
-* Billing changed from May 2026
-
-References:
-
-* <https://ashy-dune-0b4215a0f.7.azurestaticapps.net/>
-* <https://github.com/rtk-ai/rtk>
-
-## Additional 1 — Organization Standards -> This is a cross feature
-
-Show custom instructions:
-
-* Naming conventions
-* Architecture guidelines
-* Security policies
-
-Outcome:
-
-* Consistent AI-generated output
-
-Key point:
-
-* Governance is centralized
-
-## Additional 2 — Remote Control -> This is a cross feature
-
-Show how AI can be used from a mobile device to review sessions and trigger
-follow-up action. Use of `/remote` from the GitHub CLI.
-
-## Summary
-
-* AI supports the entire SDLC, not just coding
-* Work remains structured and reviewable
-* Security and quality are enforced through automation
-* Teams gain consistency and speed without losing control
