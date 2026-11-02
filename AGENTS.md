@@ -1,3 +1,9 @@
+<!-- SPECKIT START -->
+For additional context about technologies to be used, project structure,
+shell commands, and other important information, read the current plan:
+specs/001-users-table/plan.md
+<!-- SPECKIT END -->
+
 # Copilot Instructions — AI SDLC Journey
 
 ## Repository Overview
