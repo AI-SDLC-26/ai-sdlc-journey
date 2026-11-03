@@ -105,6 +105,7 @@ What to highlight:
 
 * Where to get those skills and agents
     * Awesome copilot, Skills.sh, and Autoskills...
+    * **.github-private** repository
 * Code follows conventions
 * AI output is guided, not free-form
 
