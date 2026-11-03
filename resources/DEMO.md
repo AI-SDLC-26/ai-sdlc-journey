@@ -65,31 +65,18 @@ Key point:
 
 * Quality is enforced before coding starts
 
-## Step 2 — Retrieve the Issue (MCP) (LF)
-
-After refining the issue, bring it into the workspace using GitHub MCP.
-
-```text
-Retrieve issue number 2 of this repository from GitHub and load it into the workspace for analysis and implementation planning.
-```
-
-Outcome:
-
-* Structured input ready for planning
-* No manual context switching
-
-## Step 3 — Task breakdown with agent (LF)
+## Step 2 — Retrieve the Issue and perform task breakdown (LF)  
 
 Use the planning agent to break down the issue into tasks, and create GitHub
 issues for each task.
 
 ```text
-/project-planning-breakdown-feature-implementation using the GitHub MCP downlaod the issue #2 of this repository, then evaluate the current codebase and ask any questions you need to clarify the requirements before creating the plan. Once you have a clear understanding of the requirements, create a step by step implementation plan in the #plans folder with the number and short name of the issue, for example: "2-user-table-plan.md".
+/project-planning-breakdown-feature-implementation retrieve issue #60 of this repository, then evaluate the current codebase and ask any questions you need to clarify the requirements before creating the plan. Once you have a clear understanding of the requirements, create a step by step implementation plan in the #docs/plans folder with the number and short name of the issue, for example: "60-new-profile-plan.md".
 ```
 
-## Step 4 — Implementation live improving the original mess (DR)
+## Step 3 — Implementation live improving the original mess (DR)
 
-Use skills (frontend + backend) and agents for code generation. 
+Use skills (frontend + backend) and agents for code generation.
 
 ```text
 # Select the C# Expert agent from the organization
@@ -117,7 +104,7 @@ Key point:
 * We help agents perform better through better guidance#
 * We understand that leaking a secret is an actual risk
 
-## Step 5 - Importance of the context (LF)
+## Step 4 - Importance of the context (LF)
 
 Agents rely on context for commands, structure, and conventions. Stale guidance
 can send them down the wrong path, even when the code is correct.
@@ -136,7 +123,7 @@ Key point:
 
 TODO @diegoRodriVa Create instruction for check-references.md
 
-## Step 6 — Hooks + policies (DR)
+## Step 5 — Hooks + policies (DR)
 
 Show how repository hooks and a shared path policy keep governance files under
 human control.
@@ -167,11 +154,11 @@ Key point:
 * Repository instructions explain the boundaries; hooks and CI enforce them.
 * Protected governance changes remain subject to human review.
 
-### Step 6.1 - Show policies at repo/org level (LF)
+### Step 5.1 - Show policies at repo/org level (LF)
 
 * Review settings in <https://github.com/AI-SDLC-26/ai-sdlc-journey/settings/copilot/content_exclusion>.
 
-## Step 7 — OPTIONAL: Code Quality Analysis (LF)
+## Step 6 — OPTIONAL: Code Quality Analysis (LF)
 
 Explore CodeQL either the automatic workflow or tuned-in to show:
 
