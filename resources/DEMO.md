@@ -85,7 +85,7 @@ Use the planning agent to break down the issue into tasks, and create GitHub
 issues for each task.
 
 ```text
-/project-planning-breakdown-feature-implementation using the GitHub MCP downlaod the issue #60 of this repository, then evaluate the current codebase and ask any questions you need to clarify the requirements before creating the plan. Once you have a clear understanding of the requirements, create a step by step implementation plan in the #plans folder with the number and short name of the issue, for example: "60-profile-card-plan.md".
+/project-planning-breakdown-feature-implementation using the GitHub MCP download the issue #60 of this repository, then evaluate the current codebase and ask any questions you need to clarify the requirements before creating the plan. Once you have a clear understanding of the requirements, create a step by step implementation plan in the #plans folder with the number and short name of the issue, for example: "60-profile-card-plan.md".
 ```
 
 ## Step 4 — Implementation live improving the original mess (DR)
