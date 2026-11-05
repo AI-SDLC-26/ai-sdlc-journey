@@ -71,7 +71,7 @@ Key point:
 After refining the issue, bring it into the workspace using GitHub MCP.
 
 ```text
-Retrieve issue #60 of this repository from GitHub and load it into the workspace for analysis and implementation planning in the chat. Do not create any plan file yet
+Retrieve issue #60 of this repository from GitHub and load it into the workspace for analysis and implementation planning in the chat.
 ```
 
 Outcome:
