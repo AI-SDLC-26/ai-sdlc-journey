@@ -48,8 +48,8 @@ cd "$(dirname "$0")/.." || exit 1
 files_that_need_lf=(
   scripts/is-protected.sh
   policy/protected-paths.txt
-  .claude/hooks/protect-paths.sh
-  .github/hooks/protect-paths.sh
+  .claude/hooks/protect-paths.ps1
+  .github/hooks/protect-paths.ps1
 )
 for file in "${files_that_need_lf[@]}"; do
   carriage_returns=$(tr -cd '\r' < "$file" | wc -c)
