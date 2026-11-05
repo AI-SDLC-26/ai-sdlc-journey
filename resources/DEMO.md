@@ -36,7 +36,7 @@ Focus: **practical workflow, not theory**
 Start with a weakly defined [issue](https://github.com/AI-SDLC-26/ai-sdlc-journey/issues/1):
 
 ```md
-As a user, I want to see my data in a new table in the browser. [...]
+Add an endpoint that returns the logged-in user’s profile. The frontend calls it using the existing logged in user and displays the information in a profile card.
 ```
 
 Use a GitHub Agentic Workflow (AW) with a template to refine it:
@@ -48,33 +48,48 @@ Use a GitHub Agentic Workflow (AW) with a template to refine it:
 Result:
 
 ```md
-### Refined Issue
-As a stakeholder of the application I want users to be able to see the list of users with their name, role and status, so they are able to get to know them and probably contact in the future.
+### Short summary
 
-### Acceptance Criteria
-Given an user, when they enter the /users page, then they will be presented with the list of users with (name, status and role).
+Show a hardcoded profile card for the authenticated user on the dashboard.
 
-Given no users, when they enter the /users page, then they will be presented with a "No available users" text.
+### User story statement
 
-...
+As a registered user, I want to see a profile card (name, role, age) on the dashboard, so that I can see my own account information at a glance.
+
+### Problem
+[...]
 ```
 
-More details at [Issue 2.](https://github.com/AI-SDLC-26/ai-sdlc-journey/issues/2)
+More details at [Issue 59.](https://github.com/AI-SDLC-26/ai-sdlc-journey/issues/59)
+and the improved one at [Issue 60.](https://github.com/AI-SDLC-26/ai-sdlc-journey/issues/60)
 
 Key point:
 
 * Quality is enforced before coding starts
 
-## Step 2 — Retrieve the Issue and perform task breakdown (LF)  
+## Step 2 — Retrieve the Issue (MCP) (LF)
+
+After refining the issue, bring it into the workspace using GitHub MCP.
+
+```text
+Retrieve issue #60 of this repository from GitHub and load it into the workspace for analysis and implementation planning in the chat.
+```
+
+Outcome:
+
+* Structured input ready for planning
+* No manual context switching
+
+## Step 3 — Task breakdown with agent (LF)
 
 Use the planning agent to break down the issue into tasks, and create GitHub
 issues for each task.
 
 ```text
-/project-planning-breakdown-feature-implementation retrieve issue #60 of this repository, then evaluate the current codebase and ask any questions you need to clarify the requirements before creating the plan. Once you have a clear understanding of the requirements, create a step by step implementation plan in the #docs/plans folder with the number and short name of the issue, for example: "60-new-profile-plan.md".
+/project-planning:breakdown-feature-implementation  using the GitHub MCP download the issue #60 of this repository, then evaluate the current codebase and ask any questions you need to clarify the requirements before creating the plan. Once you have a clear understanding of the requirements, create a step by step implementation plan in the #plans folder with the number and short name of the issue, for example: "60-profile-information-plan.md".
 ```
 
-## Step 3 — Implementation live improving the original mess (DR)
+## Step 4 — Implementation live improving the original project mess (DR)
 
 Use skills (frontend + backend) and agents for code generation.
 
@@ -104,7 +119,7 @@ Key point:
 * We help agents perform better through better guidance#
 * We understand that leaking a secret is an actual risk
 
-## Step 4 - Importance of the context (LF)
+## Step 5 - Importance of the context (LF)
 
 Agents rely on context for commands, structure, and conventions. Stale guidance
 can send them down the wrong path, even when the code is correct.
@@ -123,7 +138,7 @@ Key point:
 
 TODO @diegoRodriVa Create instruction for check-references.md
 
-## Step 5 — Hooks + policies (DR)
+## Step 6 — Hooks + policies (DR)
 
 Show how repository hooks and a shared path policy keep governance files under
 human control.
@@ -154,11 +169,11 @@ Key point:
 * Repository instructions explain the boundaries; hooks and CI enforce them.
 * Protected governance changes remain subject to human review.
 
-### Step 5.1 - Show policies at repo/org level (LF)
+### Step 6.1 - Show policies at repo/org level (LF)
 
 * Review settings in <https://github.com/AI-SDLC-26/ai-sdlc-journey/settings/copilot/content_exclusion>.
 
-## Step 6 — OPTIONAL: Code Quality Analysis (LF)
+## Step 7 — OPTIONAL: Code Quality Analysis (LF)
 
 Explore CodeQL either the automatic workflow or tuned-in to show:
 
