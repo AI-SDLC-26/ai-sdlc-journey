@@ -1,0 +1,9 @@
+@baseUrl = http://localhost:5000
+@token = replace-with-a-valid-jwt
+
+### Get the authenticated demo profile
+GET {{baseUrl}}/profile
+Authorization: Bearer {{token}}
+
+### Get the profile without a token
+GET {{baseUrl}}/profile

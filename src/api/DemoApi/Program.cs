@@ -1,7 +1,9 @@
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.OpenApi;
 using Microsoft.IdentityModel.Tokens;
 using Scalar.AspNetCore;
 
@@ -45,7 +47,45 @@ builder.Services.AddCors(options =>
               .AllowAnyMethod());
 });
 
-builder.Services.AddOpenApi();
+builder.Services.AddOpenApi(options =>
+{
+    options.AddOperationTransformer((operation, context, _) =>
+    {
+        var requiresAuthorization = context.Description.ActionDescriptor.EndpointMetadata
+            .OfType<IAuthorizeData>()
+            .Any();
+        if (!requiresAuthorization)
+        {
+            return Task.CompletedTask;
+        }
+
+        var document = context.Document
+            ?? throw new InvalidOperationException("OpenAPI document is unavailable.");
+        var components = document.Components;
+        if (components is null)
+        {
+            components = new OpenApiComponents();
+            document.Components = components;
+        }
+
+        var securitySchemes = components.SecuritySchemes ?? new Dictionary<string, IOpenApiSecurityScheme>();
+        components.SecuritySchemes = securitySchemes;
+        securitySchemes["Bearer"] = new OpenApiSecurityScheme
+        {
+            Type = SecuritySchemeType.Http,
+            Scheme = "bearer",
+            BearerFormat = "JWT"
+        };
+        var security = operation.Security ?? [];
+        operation.Security = security;
+        security.Add(new OpenApiSecurityRequirement
+        {
+            [new OpenApiSecuritySchemeReference("Bearer", document)] = []
+        });
+
+        return Task.CompletedTask;
+    });
+});
 
 var app = builder.Build();
 
@@ -139,8 +179,20 @@ app.MapGet("/api/users", (bool? empty, HttpContext httpContext) =>
 .RequireAuthorization()
 .WithTags("Users");
 
+app.MapGet("/profile", () =>
+        TypedResults.Ok(new ProfileResponse("Nikola Tesla", "Engineer", 86)))
+    .WithTags("Profile")
+    .WithSummary("Get the authenticated user's profile")
+    .WithDescription("Returns the demo profile shared by all authenticated users.")
+    .Produces<ProfileResponse>(StatusCodes.Status200OK)
+    .Produces(StatusCodes.Status401Unauthorized)
+    .RequireAuthorization();
+
 app.Run();
 
 record LoginRequest(string Username, string Password);
 record LoginResponse(string Token, string Name, string Role);
 record UserSummaryResponse(string Name, string Role, string Status);
+
+/// <summary>Represents the demo profile returned by the API.</summary>
+sealed record ProfileResponse(string Name, string Role, int Age);

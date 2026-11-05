@@ -1,5 +1,5 @@
 import { describe, it, expect, vi, beforeEach } from "vitest";
-import { login, fetchDemoData, fetchUsers } from "../api";
+import { login, fetchDemoData, fetchProfile, fetchUsers } from "../api";
 
 describe("login", () => {
   beforeEach(() => {
@@ -76,6 +76,49 @@ describe("fetchUsers", () => {
     expect(result[0].name).toBe("Admin");
     expect(fetchSpy).toHaveBeenCalledWith("http://localhost:5000/api/users", {
       headers: { Authorization: "Bearer valid-token" },
+    });
+  });
+
+  describe("fetchProfile", () => {
+    beforeEach(() => {
+      vi.restoreAllMocks();
+    });
+
+    it("requests and returns the authenticated profile", async () => {
+      const profile = { name: "Nikola Tesla", role: "Engineer", age: 86 };
+      const fetchSpy = vi.spyOn(globalThis, "fetch").mockResolvedValueOnce({
+        ok: true,
+        json: () => Promise.resolve(profile),
+      } as Response);
+
+      await expect(fetchProfile("valid-token")).resolves.toEqual(profile);
+      expect(fetchSpy).toHaveBeenCalledWith("http://localhost:5000/profile", {
+        headers: { Authorization: "Bearer valid-token" },
+      });
+    });
+
+    it.each([401, 500])("rejects an HTTP %i response", async (status) => {
+      vi.spyOn(globalThis, "fetch").mockResolvedValueOnce({
+        ok: false,
+        status,
+      } as Response);
+
+      await expect(fetchProfile("valid-token")).rejects.toThrow(`Failed to load profile (${status})`);
+    });
+
+    it("rejects network failures", async () => {
+      vi.spyOn(globalThis, "fetch").mockRejectedValueOnce(new Error("network unavailable"));
+
+      await expect(fetchProfile("valid-token")).rejects.toThrow("network unavailable");
+    });
+
+    it("rejects invalid JSON", async () => {
+      vi.spyOn(globalThis, "fetch").mockResolvedValueOnce({
+        ok: true,
+        json: () => Promise.reject(new SyntaxError("invalid JSON")),
+      } as Response);
+
+      await expect(fetchProfile("valid-token")).rejects.toThrow("invalid JSON");
     });
   });
 
