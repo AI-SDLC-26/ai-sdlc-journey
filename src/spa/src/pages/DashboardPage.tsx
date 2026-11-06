@@ -8,6 +8,9 @@ export default function DashboardPage() {
   const [data, setData] = useState<DemoData | null>(null);
   const [error, setError] = useState("");
 
+  const urlParams = new URLSearchParams(window.location.search);
+  const urlUser = urlParams.get("user") ?? "";
+
   useEffect(() => {
     if (!user) return;
     fetchDemoData(user.token)
@@ -19,7 +22,7 @@ export default function DashboardPage() {
 
   return (
     <div style={{ textAlign: "center", marginTop: "4rem" }}>
-      <h1>Logged in {user.name}</h1>
+      <h1>Logged in {urlUser || user.name}</h1>
       <div style={{ marginBottom: "2rem", display: "flex", gap: "1rem", justifyContent: "center" }}>
         <a href="/users">Go to Users</a>
         <button onClick={logout}>Logout</button>
