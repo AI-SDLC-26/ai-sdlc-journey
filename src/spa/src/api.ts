@@ -12,6 +12,12 @@ export interface DemoData {
   generatedAt: string;
 }
 
+export interface Profile {
+  name: string;
+  role: string;
+  age: number;
+}
+
 export interface UserSummary {
   name: string;
   role: string;
@@ -37,6 +43,14 @@ export async function fetchDemoData(token: string): Promise<DemoData> {
     headers: { Authorization: `Bearer ${token}` },
   });
   if (!res.ok) throw new Error("Unauthorized");
+  return res.json();
+}
+
+export async function fetchProfile(token: string): Promise<Profile> {
+  const res = await fetch(`${API_BASE}/profile`, {
+    headers: { Authorization: `Bearer ${token}` },
+  });
+  if (!res.ok) throw new Error(`Failed to load profile (${res.status})`);
   return res.json();
 }
 

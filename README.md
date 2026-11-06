@@ -67,6 +67,21 @@ SPA default URL: `http://localhost:5173`
 - `GET /api/users` - Requires `Authorization: Bearer <token>` - Returns
     predefined mock users on default calls - Supports `?empty=true` for
     deterministic empty-state validation
+- `GET /profile` - Requires `Authorization: Bearer <token>` - Returns the same
+    mock profile to every authenticated user:
+
+```json
+{
+  "name": "Nikola Tesla",
+  "role": "Engineer",
+  "age": 86
+}
+```
+
+The dashboard displays this read-only profile card below the demo items and
+above the generation timestamp. Profile and demo data load independently, so
+either section remains available if the other request fails. Profile values
+are hardcoded demonstration data and are not associated with the signed-in user.
 
 OpenAPI JSON: `http://localhost:5000/openapi/v1.json`
 
