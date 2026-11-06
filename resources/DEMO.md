@@ -36,7 +36,7 @@ Focus: **practical workflow, not theory**
 Start with a weakly defined [issue](https://github.com/AI-SDLC-26/ai-sdlc-journey/issues/1):
 
 ```md
-As a user, I want to see my data in a new table in the browser. [...]
+Add an endpoint that returns the logged-in user’s profile. The frontend calls it using the existing logged in user and displays the information in a profile card.
 ```
 
 Use a GitHub Agentic Workflow (AW) with a template to refine it:
@@ -48,18 +48,20 @@ Use a GitHub Agentic Workflow (AW) with a template to refine it:
 Result:
 
 ```md
-### Refined Issue
-As a stakeholder of the application I want users to be able to see the list of users with their name, role and status, so they are able to get to know them and probably contact in the future.
+### Short summary
 
-### Acceptance Criteria
-Given an user, when they enter the /users page, then they will be presented with the list of users with (name, status and role).
+Show a hardcoded profile card for the authenticated user on the dashboard.
 
-Given no users, when they enter the /users page, then they will be presented with a "No available users" text.
+### User story statement
 
-...
+As a registered user, I want to see a profile card (name, role, age) on the dashboard, so that I can see my own account information at a glance.
+
+### Problem
+[...]
 ```
 
-More details at [Issue 2.](https://github.com/AI-SDLC-26/ai-sdlc-journey/issues/2)
+More details at [Issue 59.](https://github.com/AI-SDLC-26/ai-sdlc-journey/issues/59)
+and the improved one at [Issue 60.](https://github.com/AI-SDLC-26/ai-sdlc-journey/issues/60)
 
 Key point:
 
@@ -70,7 +72,7 @@ Key point:
 After refining the issue, bring it into the workspace using GitHub MCP.
 
 ```text
-Retrieve issue number 2 of this repository from GitHub and load it into the workspace for analysis and implementation planning.
+Retrieve issue #60 of this repository from GitHub and load it into the workspace for analysis and implementation planning in the chat.
 ```
 
 Outcome:
@@ -84,12 +86,12 @@ Use the planning agent to break down the issue into tasks, and create GitHub
 issues for each task.
 
 ```text
-/project-planning-breakdown-feature-implementation using the GitHub MCP downlaod the issue #2 of this repository, then evaluate the current codebase and ask any questions you need to clarify the requirements before creating the plan. Once you have a clear understanding of the requirements, create a step by step implementation plan in the #plans folder with the number and short name of the issue, for example: "2-user-table-plan.md".
+/project-planning:breakdown-feature-implementation using the GitHub MCP download the issue #60 of this repository, then evaluate the current codebase and ask any questions you need to clarify the requirements before creating the plan. Once you have a clear understanding of the requirements, create a step by step implementation plan in the #plans folder with the number and short name of the issue, for example: "60-profile-information-plan.md". If the plan already exists, create a separate one with a new slug.
 ```
 
-## Step 4 — Implementation live improving the original mess (DR)
+## Step 4 — Implementation live improving the original project mess (DR)
 
-Use skills (frontend + backend) and agents for code generation. 
+Use skills (frontend + backend) and agents for code generation.
 
 ```text
 # Select the C# Expert agent from the organization
@@ -105,6 +107,7 @@ What to highlight:
 
 * Where to get those skills and agents
     * Awesome copilot, Skills.sh, and Autoskills...
+    * **.github-private** repository
 * Code follows conventions
 * AI output is guided, not free-form
 
