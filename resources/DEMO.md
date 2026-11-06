@@ -136,7 +136,14 @@ Key point:
 
 * Good context must stay accurate as the repository evolves
 
-TODO @diegoRodriVa Create instruction for check-references.md
+### Step 5.2 - Check References (LF)
+
+What if we wanted to check that file references from key files like AGENTS.md,
+README.md, .github/instructions/ and DEMO.md are still valid?
+
+```bash
+bash scripts/check-context.sh
+```
 
 ## Step 6 — Hooks + policies (DR)
 
@@ -156,10 +163,13 @@ Then show the layers behind that decision:
   enforce the rule
 * `scripts/is-protected.sh` checks a path against the policy; for example:
 
-  ```bash
-  ./scripts/is-protected.sh ".github/ISSUE_TEMPLATE/<template-file>"
-
-  ```
+```bash
+if bash scripts/is-protected.sh "AGENTS.md"; then
+  echo "File is indeed protected"
+else
+  echo "File is NOT protected"
+fi
+```
 
 * A CI diff check rejects protected-file changes in AI-assisted PRs and warns
   when a human-authored PR changes them.
