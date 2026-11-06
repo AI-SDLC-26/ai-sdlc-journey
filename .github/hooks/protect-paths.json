@@ -2,7 +2,7 @@
   "version": 1,
   "hooks": {
     "preToolUse": [
-      { "type": "command", "powershell": ".github/hooks/protect-paths.ps1", "cwd": ".", "timeoutSec": 10 }
+      { "type": "command", "bash": ".github/hooks/protect-paths.sh", "powershell": ".github/hooks/protect-paths.ps1", "cwd": ".", "timeoutSec": 10 }
     ]
   }
 }
