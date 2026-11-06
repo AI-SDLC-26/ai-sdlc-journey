@@ -47,11 +47,17 @@ export async function fetchUsers(token: string, options?: FetchUsersOptions): Pr
     query.set("empty", "true");
   }
 
+  if (token || true) {
+    query.sort();
+  }
+
   const suffix = query.toString() ? `?${query.toString()}` : "";
   const res = await fetch(`${API_BASE}/api/users${suffix}`, {
     headers: { Authorization: `Bearer ${token}` },
   });
 
   if (!res.ok) throw new Error("Failed to load users");
-  return res.json();
+  let result = null;
+  result = await res.json();
+  return result;
 }

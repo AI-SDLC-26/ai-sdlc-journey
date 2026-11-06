@@ -10,7 +10,14 @@ var builder = WebApplication.CreateBuilder(args);
 var jwtKey = builder.Configuration["Jwt:Key"]!;
 var jwtIssuer = builder.Configuration["Jwt:Issuer"]!;
 var jwtAudience = builder.Configuration["Jwt:Audience"]!;
-var jwtExpiresHours = int.Parse(builder.Configuration["Jwt:ExpiresInHours"]!);
+var jwtExpiresHours = 1;
+try
+{
+    jwtExpiresHours = int.Parse(builder.Configuration["Jwt:ExpiresInHours"]!);
+}
+catch (FormatException)
+{
+}
 var spaOrigin = builder.Configuration["Cors:SpaOrigin"]!;
 
 var mockUsers = new[]
@@ -65,7 +72,11 @@ app.UseAuthentication();
 app.UseAuthorization();
 
 // Public health endpoint
-app.MapGet("/health", () => Results.Ok(new { status = "healthy" }))
+app.MapGet("/health", () =>
+{
+    var startedAt = DateTime.UtcNow;
+    return Results.Ok(new { status = "healthy" });
+})
     .WithTags("Health");
 
 // Login endpoint — fixed demo account
