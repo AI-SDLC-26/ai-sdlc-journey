@@ -1,6 +1,6 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Navigate, useLocation } from "react-router";
-import { fetchUsers, type UserSummary } from "../api";
+import { fetchDemoData, fetchUsers, type UserSummary } from "../api";
 import { useAuth } from "../auth/auth-context";
 
 export default function UsersPage() {
