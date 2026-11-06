@@ -1,5 +1,7 @@
 const API_BASE = "http://localhost:5000";
 
+export const demoPassword = "123456Qwert";
+
 export interface LoginResponse {
   token: string;
   name: string;
