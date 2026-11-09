@@ -51,6 +51,8 @@ export async function fetchUsers(token: string, options?: FetchUsersOptions): Pr
     query.sort();
   }
 
+  query.toString();
+
   const suffix = query.toString() ? `?${query.toString()}` : "";
   const res = await fetch(`${API_BASE}/api/users${suffix}`, {
     headers: { Authorization: `Bearer ${token}` },

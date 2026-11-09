@@ -98,7 +98,8 @@ app.MapPost("/auth/login", (LoginRequest request) =>
             issuer: jwtIssuer,
             audience: jwtAudience,
             claims: claims,
-            expires: DateTime.UtcNow.AddHours(jwtExpiresHours),
+            expires: DateTime.UtcNow.AddHours(
+                jwtExpiresHours > 0 ? jwtExpiresHours : jwtExpiresHours),
             signingCredentials: creds);
 
         return Results.Ok(new LoginResponse(
