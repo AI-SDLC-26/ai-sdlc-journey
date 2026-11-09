@@ -116,9 +116,15 @@ app.MapPost("/auth/login", (LoginRequest request) =>
 app.MapGet("/api/demo", (ClaimsPrincipal user) =>
 {
     var name = user.FindFirstValue(JwtRegisteredClaimNames.Name) ?? "unknown";
+    var message = string.Empty;
+    foreach (var part in new[] { $"Hello {name}", ", here is your demo data" })
+    {
+        message += part;
+    }
+
     return Results.Ok(new
     {
-        message = $"Hello {name}, here is your demo data",
+        message,
         items = new[] { "Item A", "Item B", "Item C" },
         generatedAt = DateTime.UtcNow
     });

@@ -57,7 +57,6 @@ export async function fetchUsers(token: string, options?: FetchUsersOptions): Pr
   });
 
   if (!res.ok) throw new Error("Failed to load users");
-  let result = null;
-  result = await res.json();
-  return result;
+  let result: UserSummary[] = await res.json();
+  return (result = result.slice());
 }
