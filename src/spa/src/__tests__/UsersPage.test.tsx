@@ -3,6 +3,7 @@ import { render, screen } from "@testing-library/react";
 import { MemoryRouter, Route, Routes } from "react-router";
 import { AuthProvider } from "../auth/AuthContext";
 import UsersPage from "../pages/UsersPage";
+import { routes } from "../routes";
 
 describe("UsersPage", () => {
   beforeEach(() => {
@@ -23,10 +24,10 @@ describe("UsersPage", () => {
     } as Response);
 
     render(
-      <MemoryRouter initialEntries={["/users"]}>
+      <MemoryRouter initialEntries={[routes.users]}>
         <AuthProvider>
           <Routes>
-            <Route path="/users" element={<UsersPage />} />
+            <Route path={routes.users} element={<UsersPage />} />
           </Routes>
         </AuthProvider>
       </MemoryRouter>
@@ -48,10 +49,10 @@ describe("UsersPage", () => {
     } as Response);
 
     render(
-      <MemoryRouter initialEntries={["/users?empty=true"]}>
+      <MemoryRouter initialEntries={[`${routes.users}?empty=true`]}>
         <AuthProvider>
           <Routes>
-            <Route path="/users" element={<UsersPage />} />
+            <Route path={routes.users} element={<UsersPage />} />
           </Routes>
         </AuthProvider>
       </MemoryRouter>
@@ -65,11 +66,11 @@ describe("UsersPage", () => {
 
   it("redirects unauthenticated users from /users to /", async () => {
     render(
-      <MemoryRouter initialEntries={["/users"]}>
+      <MemoryRouter initialEntries={[routes.users]}>
         <AuthProvider>
           <Routes>
-            <Route path="/" element={<div>Home Route</div>} />
-            <Route path="/users" element={<UsersPage />} />
+            <Route path={routes.home} element={<div>Home Route</div>} />
+            <Route path={routes.users} element={<UsersPage />} />
           </Routes>
         </AuthProvider>
       </MemoryRouter>

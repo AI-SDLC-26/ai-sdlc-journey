@@ -3,6 +3,7 @@ import { render, screen } from "@testing-library/react";
 import { MemoryRouter } from "react-router";
 import { AuthProvider } from "../auth/AuthContext";
 import HomePage from "../pages/HomePage";
+import { routes } from "../routes";
 
 describe("HomePage", () => {
   beforeEach(() => {
@@ -48,6 +49,6 @@ describe("HomePage", () => {
     );
 
     expect(screen.getByText(/Welcome back, Admin/)).toBeDefined();
-    expect(screen.getByRole("link", { name: "Go to Users" }).getAttribute("href")).toBe("/users");
+    expect(screen.getByRole("link", { name: "Go to Users" }).getAttribute("href")).toBe(routes.users);
   });
 });

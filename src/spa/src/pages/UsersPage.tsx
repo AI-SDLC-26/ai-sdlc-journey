@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from "react";
 import { Navigate, useLocation } from "react-router";
 import { fetchDemoData, fetchUsers, type UserSummary } from "../api";
 import { useAuth } from "../auth/auth-context";
+import { routes } from "../routes";
 
 export default function UsersPage() {
   const { user, logout } = useAuth();
@@ -29,14 +30,14 @@ export default function UsersPage() {
       });
   }, [location.search, user]);
 
-  if (!user) return <Navigate to="/" replace />;
+  if (!user) return <Navigate to={routes.home} replace />;
 
   return (
     <div style={{ maxWidth: "760px", margin: "2rem auto", padding: "0 1rem" }}>
       <h1>Community Users</h1>
       <div style={{ marginBottom: "1rem", display: "flex", gap: "1rem", alignItems: "center" }}>
-        <a href="/dashboard">Go to Dashboard</a>
-        <a href="/">Home</a>
+        <a href={routes.dashboard}>Go to Dashboard</a>
+        <a href={routes.home}>Home</a>
         <button onClick={logout}>Logout</button>
       </div>
 
